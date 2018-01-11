@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  
+  database:
+    image: postgres:9.6
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb  # You should choose a better name for your database. 
+                          # Do not forget to change the url propertie in the application.yaml
+  pgadmin:
+    image: thajeztah/pgadmin4
+    container_name: pgadmin4
+    ports:
+      - "5050:5050"
+    volumes:
+      - /home/$USER/pgadmin4:/pgadmin
+    depends_on:
+      - database
+
+  app:
+    image: ${artifact}-docker
+    container_name: webapp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+volumes: 
+  pgdata:
