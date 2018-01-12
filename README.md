@@ -15,6 +15,7 @@ Now that you have git installed, you need to do a few things so that the commit 
 The easiest way of doing this is through the git config command. Specifically, we need to provide our name and email address because git embeds this information into each commit we do. We can go ahead and add this information by typing in terminal:
 
 `git config --global user.name "Your Name"`
+
 `git config --global user.email "youremail@domain.com"`
 
 ## 2. Download and install SDKMAN
@@ -51,6 +52,8 @@ Open your terminal and type the command below:
 
 ## 6. Download and install Docker
 
+To download and install Docker follow the instructions of this [link](DOCKER-INSTALLATION.md)
+
 # Section 2: Creating projects by template
 
 ## 1. Installing the templates 
@@ -71,4 +74,4 @@ So if you wanted to create a new project based on spring-boot-web project in a n
 
 `lazybones create spring-boot-web 0.1 myspringbootwebapp`
 
-Note: Do not use the `lazybones create command` passing names with the character "-". So names like my-spring-boot-web-app are not alowed.
+Note: Do not use the **lazybones create command** passing names with the character "-". So names like my-spring-boot-web-app are not alowed.
