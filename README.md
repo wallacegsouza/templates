@@ -7,6 +7,7 @@
 To download and install Git, open the terminal and execute the commands bellow:
 
 `sudo apt-get update`
+
 `sudo apt-get install git`
 
 Now that you have git installed, you need to do a few things so that the commit messages that will be generated for you will contain your correct information.
