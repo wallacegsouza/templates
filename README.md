@@ -2,7 +2,7 @@
 
 ## Section 1: Downloading and installing tools
 
-### 1. Download, install and configure Git
+### 1.1 Download, install and configure Git
 
 To download and install Git, open the terminal and execute the commands bellow:
 
@@ -18,29 +18,29 @@ The easiest way of doing this is through the git config command. Specifically, w
 
 `git config --global user.email "youremail@domain.com"`
 
-## 2. Download and install SDKMAN
+### 1.2 Download and install SDKMAN
 
 To download and install SDKMAN follow the instructions of this [link](http://sdkman.io/install.html)
 
-## 3. Download and install Java Development Kit (JDK)
+### 1.3 Download and install Java Development Kit (JDK)
 
 Open your terminal and type the command below:
 
 `sdk install java`
 
-## 3. Download and install Maven
+### 1.4 Download and install Maven
 
 Open your terminal and type the command below:
 
 `sdk install maven`
 
-## 4. Download and install Gradle
+### 1.5 Download and install Gradle
 
 Open your terminal and type the command below:
 
 `sdk install gradle`
 
-## 5. Download and install Lazybones
+### 1.6 Download and install Lazybones
 
 Lazybones allows you to create a new project structure for any framework or library for which the tool has a template. 
 
@@ -50,13 +50,13 @@ Open your terminal and type the command below:
 
 `sdk install lazybones`
 
-## 6. Download and install Docker
+### 1.7 Download and install Docker
 
-To download and install Docker follow the instructions of this [link](DOCKER-INSTALLATION.md)
+To download and install Docker follow the instructions of this [link](DOCKERINSTALLATION.md)
 
-# Section 2: Creating projects by template
+## Section 2: Creating projects by template
 
-## 1. Installing the templates 
+### 2.1 Installing the templates 
 
 Using Git, clone this project to some directory in your computer.
 
@@ -64,7 +64,7 @@ Open the terminal and execute the command below inside the cloned  project direc
 
 `./gradlew installAllTemplates`
 
-## 2. Creating the template
+### 2.2 Creating the template
 
 Choose a different directory from the Section 2 step 1 and execute the following command:
 
