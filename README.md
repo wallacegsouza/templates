@@ -66,12 +66,12 @@ Open the terminal and execute the command below inside the cloned  project direc
 
 ### 2.2 Creating the template
 
-Choose a different directory from the Section 2 step 1 and execute the following command:
+Choose a different directory from the cloned repository in section 2.1 and execute the following command:
 
 `lazybones create <template name> <template version> <target directory>`
 
-So if you wanted to create a new project based on spring-boot-web project in a new 'myspringbootwebapp' directory you would run:
+So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
 `lazybones create spring-boot-web 0.1 myspringbootwebapp`
 
-Note: Do not use the **lazybones create command** passing names with the character "-". So names like my-spring-boot-web-app are not alowed.
+Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
