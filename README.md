@@ -1,8 +1,8 @@
 # Java Lazybones Templates
 
-# Section 1: Downloading and installing tools
+## Section 1: Downloading and installing tools
 
-## 1. Download, install and configure Git
+### 1. Download, install and configure Git
 
 To download and install Git, open the terminal and execute the commands bellow:
 
