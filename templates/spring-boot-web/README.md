@@ -31,3 +31,4 @@ Create your home directory (/home/$USER/), creates a folder called pgadmin4 and,
 
 1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
+
