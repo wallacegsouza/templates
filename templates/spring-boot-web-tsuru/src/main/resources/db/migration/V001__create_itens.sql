@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS item (
+    id BIGINT,
+    name VARCHAR(50)
+)
