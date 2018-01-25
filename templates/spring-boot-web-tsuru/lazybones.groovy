@@ -12,7 +12,7 @@ props.projectDir = projectDir
 props.pkg = props.group + "." + props.artifact
 props.USER = "\$USER"
   
-["build.gradle", "**/*.java", "pom.xml", "settings.gradle", "Procfile", "application-variables.env"].each {
+["build.gradle", "**/*.java", "settings.gradle", "docker-compose.yml"].each {
   processTemplates(it, props)
 }
 
