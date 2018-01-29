@@ -5,7 +5,7 @@ props.version = ask("Define value for 'version' [0.1]: ", "0.1", "version")
 println 'Just a simple name for the app'
 String artifact = ask("Define value for 'artifact' [appname]: ", "appname", "artifact")
 props.artifact = artifact.trim().toLowerCase()
-//TODO replace com erro .replaceAll("[^a-z]","")​ -> No such property: ​ for class: java.lang.String 
+//TODO replace com erro .replaceAll("[^a-z]","")​ -> No such property: ​ for class: java.lang.String
 
 props.projectDir = projectDir
 

@@ -1,4 +1,0 @@
-hooks:
-  build:
-    - ./gradlew clean build
-

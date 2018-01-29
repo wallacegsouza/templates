@@ -25,8 +25,8 @@ dependencies {
     //compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.flywaydb:flyway-core:3.2.1'
-    runtime 'org.postgresql:postgresql:42.1.4'
+    compile 'org.flywaydb:flyway-core'
+    runtime 'org.postgresql:postgresql'
 
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
@@ -66,5 +66,11 @@ task createDockerImage(type: DockerBuildImage) {
     inputDir = file('.')
     tags = ["${artifact}-docker"]
 }
+
+String dev = "development"
+
+String environment = System.getenv("JAVA_ENV") ?: dev
+
+createDockerImage.enabled = dev.equals(environment)
 
 build.finalizedBy(createDockerImage)
