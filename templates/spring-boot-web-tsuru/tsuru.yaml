@@ -1,7 +1,4 @@
 hooks:
   build:
-    - export SPRING_DATASOURCE_URL=jdbc:postgresql://$PG_HOST:$PG_PORT/$PG_DATABASE
-    - export SPRING_DATASOURCE_USERNAME=$PG_USER
-    - export SPRING_DATASOURCE_PASSWORD=$PG_PASSWORD
     - ./gradlew clean build
 

@@ -55,22 +55,24 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
-        if(!"production".equals(environment)) {
-            classpath('com.bmuschko:gradle-docker-plugin:3.0.8')
-        }
+        classpath('com.bmuschko:gradle-docker-plugin:3.0.8')
     }
 }
 
-if(!"production".equals(environment)) {
-    // Docker config
-    import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
-    apply plugin: 'com.bmuschko.docker-remote-api'
+// Docker config
 
-    task createDockerImage(type: DockerBuildImage) {
-        inputDir = file('.')
-        tags = ["${artifact}-docker"]
-    }
+apply plugin: 'com.bmuschko.docker-remote-api'
 
-    build.finalizedBy(createDockerImage)
+task createDockerImg(type: DockerBuildImage) {
+    inputDir = file('.')
+    tags = ["${artifact}-docker"]
 }
+
+def dev = "development"
+def environment = System.getenv("JAVA_ENV") ?: dev
+
+createDockerImage.enabled = dev.equals(environment)
+
+build.finalizedBy(createDockerImg)
