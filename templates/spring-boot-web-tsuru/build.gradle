@@ -47,10 +47,6 @@ jar {
     }
 }
 
-def dev = "development"
-
-def environment = System.getenv("JAVA_ENV") ?: dev
-
 buildscript {
     repositories {
         mavenCentral()
@@ -67,13 +63,15 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
 apply plugin: 'com.bmuschko.docker-remote-api'
 
-task createDockerImg(type: DockerBuildImage) {
+task createDockerImage(type: DockerBuildImage) {
     inputDir = file('.')
     tags = ["${artifact}-docker"]
 }
 
-def environment = System.getenv("JAVA_ENV") ?: dev
+String dev = "development"
+
+String environment = System.getenv("JAVA_ENV") ?: dev
 
 createDockerImage.enabled = dev.equals(environment)
 
-build.finalizedBy(createDockerImg)
+build.finalizedBy(createDockerImage)
