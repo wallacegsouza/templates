@@ -64,14 +64,18 @@ Open the terminal and execute the command below inside the cloned  project direc
 
 `./gradlew installAllTemplates`
 
+To see if the templates were installed:
+
+`lazybones list --cache`
+
 ### 2.2 Creating the template
 
 Choose a different directory from the cloned repository in section 2.1 and execute the following command:
 
-`lazybones create <template name> <template version> <target directory>`
+`lazybones create --with-git <template name> <template version> <target directory>`
 
 So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
-`lazybones create spring-boot-web 0.1 myspringbootwebapp`
+`lazybones create --with-git spring-boot-web 0.2 myspringbootwebapp`
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
