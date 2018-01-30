@@ -81,6 +81,6 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Guava
     - **Tsuru Deploy configuration**
 
-To create a **spring-boot-web** project follow the instructions of this [link](java-templates/templates/spring-boot-web/README.md)
+To create a **spring-boot-web** project follow the instructions of this [link](spring-boot-web/README.md)
 
 To create a **spring-boot-web-tsuru** project follow the instructions of this [link](/home/jhonys/Projects/Java/Projects/java-templates/templates/spring-boot-web-tsuru/README.md)
