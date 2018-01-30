@@ -2,6 +2,12 @@
 
 ## Downloading and installing tools on your machine
 
+The instructions bellow will help you to install Git, SDKMAN, Java (JDK), Maven, Gradle, Lazybones and Docker in your machine.
+
+You will need execute the steps 1 to 7 only once.
+
+The step 8 helps you to create your java project from one of ours template projects.
+
 ### 1 Download, install and configure Git
 
 To download and install Git, open the terminal and execute the commands bellow:
