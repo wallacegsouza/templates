@@ -28,6 +28,53 @@ Before to create your new app, type `tsuru app-list <appname>` in terminal and i
 
 If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this link beacause you gonna need it in the next steps.
 
+## 4. Bind Database Service
+
+Now that you created you application on Tsuru, you need to bind the database service to you application. To do this, execute the following command in terminal: `tsuru service-instance-bind postgresapi db_tsuru-poc-rails-pg -a your-app-name`
+
+## 5. ENV SET
+
+In this step you nedd to create an enviroment variable in order to tell Tsuru that Gradle build is not in the development enviroment and must ignore the container image build task.
+
+So, in your terminal, type the following command: `tsuru env-set JAVA_ENV=production -a your-app-name`.
+
+## 6 Installing the templates
+
+Using Git, clone this project to some directory in your computer.
+
+Open the terminal and execute the command below inside the cloned  project directory:
+
+`./gradlew installAllTemplates`
+
+To see if the templates were installed:
+
+`lazybones list --cache`
+
+## 7 Creating the template
+
+Choose a different directory from the cloned repository in section 2.1 and execute the following command:
+
+`lazybones create --with-git <template name> <template version> <target directory>`
+
+So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
+
+`lazybones create --with-git spring-boot-web-tsuru 0.1 yourspringbootwebapp`
+
+Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 3. Create pgadmin4 folder

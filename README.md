@@ -56,7 +56,7 @@ To download and install Docker follow the instructions of this [link](DOCKERINST
 
 ## Section 2: Creating projects by template
 
-### 2.1 Installing the templates 
+### 2.1 Installing the templates
 
 Using Git, clone this project to some directory in your computer.
 
