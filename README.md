@@ -1,8 +1,8 @@
 # Java Lazybones Templates
 
-## Section 1: Downloading and installing tools
+## Downloading and installing tools on your machine
 
-### 1.1 Download, install and configure Git
+### 1 Download, install and configure Git
 
 To download and install Git, open the terminal and execute the commands bellow:
 
@@ -18,29 +18,29 @@ The easiest way of doing this is through the git config command. Specifically, w
 
 `git config --global user.email "youremail@domain.com"`
 
-### 1.2 Download and install SDKMAN
+### 2 Download and install SDKMAN
 
 To download and install SDKMAN follow the instructions of this [link](http://sdkman.io/install.html)
 
-### 1.3 Download and install Java Development Kit (JDK)
+### 3 Download and install Java Development Kit (JDK)
 
 Open your terminal and type the command below:
 
 `sdk install java`
 
-### 1.4 Download and install Maven
+### 4 Download and install Maven
 
 Open your terminal and type the command below:
 
 `sdk install maven`
 
-### 1.5 Download and install Gradle
+### 5 Download and install Gradle
 
 Open your terminal and type the command below:
 
 `sdk install gradle`
 
-### 1.6 Download and install Lazybones
+### 6 Download and install Lazybones
 
 Lazybones allows you to create a new project structure for any framework or library for which the tool has a template. 
 
@@ -50,32 +50,31 @@ Open your terminal and type the command below:
 
 `sdk install lazybones`
 
-### 1.7 Download and install Docker
+### 7 Download and install Docker
 
 To download and install Docker follow the instructions of this [link](DOCKERINSTALLATION.md)
 
-## Section 2: Creating projects by template
+### 8 Creating projects by templates
 
-### 2.1 Installing the templates
+We have 2 (two) templates that you can choose and create your project from them: **spring-boot-web** and **spring-boot-web-tsuru**.
 
-Using Git, clone this project to some directory in your computer.
+**spring-boot-web** template will generate a Spring boot Java project configured with:
+    - Spring Boot
+    - Spring Data JPA
+    - Docker
+    - Flyway
+    - PostgreSQL connection database
+    - Guava
 
-Open the terminal and execute the command below inside the cloned  project directory:
+**spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
+    - Spring Boot
+    - Spring Data JPA
+    - Docker
+    - Flyway
+    - PostgreSQL connection database
+    - Guava
+    - **Tsuru Deploy configuration**
 
-`./gradlew installAllTemplates`
+To create a **spring-boot-web** project follow the instructions of this [link](/home/jhonys/Projects/Java/Projects/java-templates/templates/spring-boot-web/README.md)
 
-To see if the templates were installed:
-
-`lazybones list --cache`
-
-### 2.2 Creating the template
-
-Choose a different directory from the cloned repository in section 2.1 and execute the following command:
-
-`lazybones create --with-git <template name> <template version> <target directory>`
-
-So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
-
-`lazybones create --with-git spring-boot-web 0.2 myspringbootwebapp`
-
-Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
+To create a **spring-boot-web-tsuru** project follow the instructions of this [link](/home/jhonys/Projects/Java/Projects/java-templates/templates/spring-boot-web-tsuru/README.md)
