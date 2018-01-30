@@ -1,7 +1,11 @@
 def props = [:]
 props.group = ask("Define value for 'group' [br.gov.rj.campos]: ", "br.gov.rj.campos", "group")
 props.version = ask("Define value for 'version' [0.1]: ", "0.1", "version")
-props.artifact = ask("Define value for 'artifact' [appname]: ", "appname", "artifact")
+
+println 'Just a simple name for the app'
+String artifact = ask("Define value for 'artifact' [appname]: ", "appname", "artifact")
+props.artifact = artifact.trim().toLowerCase()
+//TODO replace com erro .replaceAll("[^a-z]","")​ -> No such property: ​ for class: java.lang.String
 
 props.pkg = props.group + "." + props.artifact
 
@@ -9,7 +13,7 @@ processTemplates("build.gradle", props)
 processTemplates("**/*.groovy", props)
 processTemplates("**/*.java", props)
 
-// TODO Temos que mudar isso viu }=)
+// INFO To develop with Windows its needed to modify the separator.
 String separator = "/"
 
 def proj_name = props.artifact.toLowerCase()
@@ -35,3 +39,7 @@ import org.apache.commons.io.FileUtils
 }
 
 FileUtils.moveToDirectory(old_java_dir, dir_java_project, true)
+
+FileUtils.moveFile( 
+  new File(projectDir, "gitignore.txt"),
+  new File(projectDir, ".gitignore"))
