@@ -12,7 +12,7 @@ props.projectDir = projectDir
 props.pkg = props.group + "." + props.artifact
 props.USER = "\$USER"
   
-["build.gradle", "**/*.java", "settings.gradle", "docker-compose.yml", "src/main/resources/application.yaml", "src/main/resources/db/migration/*.sql"].each {
+["build.gradle", "**/*.groovy", "**/*.java", "settings.gradle", "docker-compose.yml", "src/main/resources/application.yaml", "src/main/resources/db/migration/*.sql"].each {
   processTemplates(it, props)
 }
 
@@ -25,15 +25,22 @@ def proj_group = (props.group.split("\\.")*.toLowerCase()).join(separator)
 base_package = proj_group + separator + proj_name
 
 def java_dir = [projectDir, "src", "main", "java", base_package].join(separator)
+def groovy_test_dir = [projectDir, "src", "test", "groovy", base_package].join(separator)
 
 File dir_java_project = new File(java_dir)
+File dir_groovy_test_project = new File(groovy_test_dir)
 
 def old_java_dir = [projectDir, "src", "main", "java"].join(separator)
+def old_groovy_test_dir = [projectDir, "src", "test", "groovy"].join(separator)
 
 import org.apache.commons.io.FileUtils
 
 ["controller", "entity", "repository", "service", "DemoApplication.java"].each {
   FileUtils.moveToDirectory(new File(old_java_dir + separator + it), dir_java_project, true)
+}
+
+["ItemControllerSpec.groovy"].each {
+  FileUtils.moveToDirectory(new File(old_groovy_test_dir + separator + it), dir_groovy_test_project, true)
 }
 
 FileUtils.moveFile( 
