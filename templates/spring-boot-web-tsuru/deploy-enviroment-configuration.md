@@ -1,10 +1,14 @@
 # Spring Boot demo web with Tsuru config
 
+This file helps you to make deploy on Tsuru manually.
+
 ## 1. Login on Tsuru
 
 Open the terminal and type the following command: `tsuru login`
 
 Input your e-mail and password and done! You successfully logged in!
+
+You can also access Tsuru dashboard from this [link](http://tsuru-dashboard.10.131.189.70.nip.io)
 
 ## 2. Adding a platform to tsuru
 
@@ -26,7 +30,7 @@ Once you've added a platform, it's time you create your application. Each applic
 
 Before to create your new app, type `tsuru app-list <appname>` in terminal and if the there is no app with the name you intend to give to your app, type in terminal `tsuru app-create your-app-name java-8u152-zulu`.
 
-If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this link beacause you gonna need it in the next steps.
+If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this git deploy url beacause you gonna need it in the next steps.
 
 ## 4. Bind Database Service
 
@@ -38,7 +42,7 @@ In this step you nedd to create an enviroment variable in order to tell Tsuru th
 
 So, in your terminal, type the following command: `tsuru env-set JAVA_ENV=production -a your-app-name`.
 
-## 6 Installing the templates
+## 6. Installing the templates
 
 Using Git, clone this project to some directory in your computer.
 
@@ -50,9 +54,9 @@ To see if the templates were installed:
 
 `lazybones list --cache`
 
-## 7 Creating the template
+## 7. Creating a project from a template
 
-Choose a different directory from the cloned repository in section 2.1 and execute the following command:
+Choose a different directory from this template project and execute the following command:
 
 `lazybones create --with-git <template name> <template version> <target directory>`
 
@@ -62,41 +66,14 @@ So if you wanted to create a new project based on spring-boot-web template in a 
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 
+## 8. Binding your project on Tsuru to make the deploy
 
+Run the following command in terminal: `tsuru key-add yourname-rsa-key ~/.ssh/id_rsa.pub`
 
+Now you gonna need the git deploy url (Git Repository) that you got in step 4. But if you lost it, run the following command in your terminal and you will be able to see the git deploy url of your application: `tsuru app-info -a your-app-name`. If you forgot your application name run the command `tsuru app-list`.
 
+Using the terminal, get inside the project created in the previous step and type the following command: `git remote add origin the-git-tsuru-deploy-url-of-your-project`.
 
+## 9. Deploying your project on Tsuru
 
-
-
-
-
-
-
-
-
-
-
-## 3. Create pgadmin4 folder
-
-Create your home directory (/home/$USER/), creates a folder called pgadmin4 and, in terminal, add permission running the following command: 
-
-`sudo chmod 777 /home/$USER/pgadmin4`
-
-## 3. Build app & Dockerfile
-
-`gradle build`
-
-## 4. Run docker-compose
-
-`docker-compose up`
-
-**What happens:**
-
-1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
-2. Starts Spring boot application which populates database with some test data
-
-## 3. Test
-
-1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
-2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
+To deploy your project on Tsuru run the following command: `git push --set-upstream origin master`

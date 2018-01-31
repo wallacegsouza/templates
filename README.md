@@ -4,9 +4,11 @@
 
 The instructions bellow will help you to install Git, SDKMAN, Java (JDK), Maven, Gradle, Lazybones and Docker in your machine.
 
-You will need execute the steps 1 to 7 only once.
+You will need execute the steps 1 to 8 only once.
 
-The step 8 helps you to create your java project from one of ours template projects.
+The step 9 helps you to create your java project from one of ours template projects.
+
+We recommend you to use Ubuntu to correctly use of this templates.
 
 ### 1 Download, install and configure Git
 
@@ -58,9 +60,19 @@ Open your terminal and type the command below:
 
 ### 7 Download and install Docker
 
-To download and install Docker follow the instructions of this [link](DOCKERINSTALLATION.md)
+To download and install Docker follow the instructions of this [link](docker-installation.md)
 
-### 8 Creating projects by templates
+### 8 Installing tsuru client and accessing Tsuru from your computer
+
+**tsuru** is the command line utility used by application developers, that will allow users to create, list, bind and manage apps. 
+
+This [link](https://docs.tsuru.io/stable/using/install-client.html) describes how you can install tsuru CLI, using pre-compiled binaries, packages or building them from source.
+
+You can also access Tsuru dashboard from this [link](http://tsuru-dashboard.10.131.189.70.nip.io)
+
+If you want more details, check the tsuru [documentation](https://docs.tsuru.io/stable/.)
+
+### 9 Creating projects by templates
 
 We have 2 (two) templates that you can choose and create your project from them: **spring-boot-web** and **spring-boot-web-tsuru**.
 
@@ -81,6 +93,6 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Guava
     - **Tsuru Deploy configuration**
 
-To create a **spring-boot-web** project follow the instructions of the README file inside spring-boot-web folder.
+To create a **spring-boot-web** project follow the instructions of the **deploy-enviroment-configuration** file inside spring-boot-web folder.
 
-To create a **spring-boot-web-tsuru** project follow the instructions of the README file inside spring-boot-web-tsuru folder.
+To create a **spring-boot-web-tsuru** project follow the instructions of the **deploy-enviroment-configuration** and **development-enviroment-configuration** files inside spring-boot-web-tsuru folder.
