@@ -1,24 +1,20 @@
 # Spring Boot demo web with Tsuru config
 
-## 1. Choose database name
-
-Open the docker-compose file in the root directory and put your database name at the POSTGRES_DB enviroment variable.
-
-## 2. Edit application.yaml file
+## 1. Edit application.yaml file
 
 Once you have changed the database name in Step 1, open the application.yaml file in the src/main/resources directory and change de database name at url propertie.
 
-## 3. Create pgadmin4 folder
+## 2. Create pgadmin4 folder
 
 Create your home directory (/home/$USER/), creates a folder called pgadmin4 and, in terminal, add permission running the following command: 
 
 `sudo chmod 777 /home/$USER/pgadmin4`
 
-## 3. Build app & Dockerfile
+## 4. Build app & Dockerfile
 
 `gradle build`
 
-## 4. Run docker-compose
+## 5. Run docker-compose
 
 `docker-compose up`
 
