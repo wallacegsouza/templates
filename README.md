@@ -77,22 +77,26 @@ If you want more details, check the tsuru [documentation](https://docs.tsuru.io/
 We have 2 (two) templates that you can choose and create your project from them: **spring-boot-web** and **spring-boot-web-tsuru**.
 
 **spring-boot-web** template will generate a Spring boot Java project configured with:
+    - Gradle
     - Spring Boot
     - Spring Data JPA
     - Docker
     - Flyway
     - PostgreSQL connection database
     - Guava
+    - Spring Actuator
 
 **spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
+    - Gradle
     - Spring Boot
     - Spring Data JPA
     - Docker
     - Flyway
     - PostgreSQL connection database
     - Guava
+    - Spring Actuator
     - **Tsuru Deploy configuration**
 
-To create a **spring-boot-web** project follow the instructions of the **deploy-enviroment-configuration** file inside spring-boot-web folder.
+To create a **spring-boot-web** project follow the instructions of the **README** file inside spring-boot-web folder.
 
-To create a **spring-boot-web-tsuru** project follow the instructions of the **deploy-enviroment-configuration** and **development-enviroment-configuration** files inside spring-boot-web-tsuru folder.
+To create a **spring-boot-web-tsuru** project follow the instructions of the **README** file inside spring-boot-web-tsuru folder.
