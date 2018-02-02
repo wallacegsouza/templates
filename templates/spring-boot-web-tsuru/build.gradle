@@ -6,7 +6,7 @@ apply plugin: 'org.springframework.boot'
 group = "${group}"
 version = "${version}"
 
-description = """Demo project for Spring Boot Web"""
+description = """Demo project for Spring Boot Web and Tsuru Paas"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
