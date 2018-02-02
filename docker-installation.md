@@ -50,16 +50,16 @@ To test if Docker Compose has been installed type this command in terminal:
 
 If you are behind a HTTP or HTTPS proxy server follow this link: [https://docs.docker.com/engine/admin/systemd/#httphttps-proxy](https://docs.docker.com/engine/admin/systemd/#httphttps-proxy)
 
-P.S.1: Docker DNS configuration looks for Google DNS and proxy.campos.rj.gov.br domain is not registered at Google DNS. So, to use docker behind the Prefeitura Municipal de Campos dos Goytacazes proxy, you need to use the IP address instead the domain name.
+**P.S.1:** Docker DNS configuration looks for Google DNS and proxy.campos.rj.gov.br domain is not registered at Google DNS. So, to use docker behind the Prefeitura Municipal de Campos dos Goytacazes proxy, you need to use the IP address instead the domain name.
 
-P.S.2: Prefeitura Municipal de Campos dos Goytacazes proxy IP address is: 10.131.188.1
+**P.S.2:** Prefeitura Municipal de Campos dos Goytacazes proxy IP address is: 10.131.188.1
 
-P.S.3: http-proxy.conf file must have this configuration:
+**P.S.3:** http-proxy.conf file must have this configuration:
 
 `[Service]
 Environment="HTTP_PROXY=http://10.131.188.1:80/"`
 
-P.S.4: https-proxy.conf file must have this configuration:
+**P.S.4:** https-proxy.conf file must have this configuration:
 
 `[Service]
 Environment="HTTPS_PROXY=http://10.131.188.1:80/"`
