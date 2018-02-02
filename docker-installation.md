@@ -16,7 +16,7 @@ Also look for the line bellow and copy and paste on terminal:
 
 To add your user to the "docker" group type, open the terminal and add the command below. Reboot your operating system after execute this command to be sure that it’s will work as expected.
 
-`sudo usermod -aG YOUR_USER`
+`sudo usermod -aG docker $USER`
 
 ## 3. Test if docker is running correctly
 
