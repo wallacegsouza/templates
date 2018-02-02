@@ -81,7 +81,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Spring Boot
     - Spring Data JPA
     - Docker
-    - Flyway
+    - FlywayDB
     - PostgreSQL connection database
     - Guava
     - Spring Actuator
@@ -91,7 +91,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Spring Boot
     - Spring Data JPA
     - Docker
-    - Flyway
+    - FlywayDB
     - PostgreSQL connection database
     - Guava
     - Spring Actuator
