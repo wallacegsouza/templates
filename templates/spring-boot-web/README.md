@@ -1,3 +1,40 @@
-# Spring Boot Web
+# Spring Boot Web Tsuru
 
-To create a **spring-boot-web** project follow the instructions of the **deploy-enviroment-configuration** file inside spring-boot-web folder.
+This documentation helps you to set up a Spring Boot Web Application.
+
+## 1. Prerequisites
+
+
+
+
+## 2. Setting up Development Environment
+
+### 2.1 Creating a project from a template
+
+Choose a different directory from this template project and execute the following command:
+
+`lazybones create --with-git <template name> <template version> <target directory>`
+
+So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
+
+`lazybones create --with-git spring-boot-web-tsuru 0.1 yourspringbootwebapp`
+
+Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
+
+### 2.2 Building the application & Docker image
+
+`gradle build`
+
+### 2.3 Run docker-compose
+
+`docker-compose up`
+
+**What happens:**
+
+1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
+2. Starts Spring boot application which populates database with some test data
+
+### 2.4 Testing the Application
+
+1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
+2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
