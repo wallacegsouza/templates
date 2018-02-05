@@ -26,7 +26,7 @@ Open your terminal and type the command below:
 
 Lazybones allows you to create a new project structure for any framework or library for which the tool has a template. 
 
-If you want more information about the project check it out [here](https://github.com/pledbrook/lazybones/) and [here](https://github.com/pledbrook/lazybones/wiki/Template-developers-guide)
+If you want more information about lazybones project check it out [here](https://github.com/pledbrook/lazybones/) and [here](https://github.com/pledbrook/lazybones/wiki/Template-developers-guide)
 
 
 ## Creating projects by templates

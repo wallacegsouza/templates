@@ -1,8 +1,10 @@
 # Spring Boot Web Tsuru
 
-## Prerequisites
+This documentation helps you to set up a Spring Boot Web Application to deploy with Tsuru.
 
-### Create pgadmin4 folder
+## 1. Prerequisites
+
+### 1.1 Create pgadmin4 folder
 
 This project use containers provided by Docker. 
 
@@ -14,7 +16,7 @@ Create in your home directory (/home/$USER/), creates a folder called pgadmin4 a
 
 `sudo chmod 777 /$HOME/pgadmin4`
 
-### Configure Gradle proxy
+### 1.2 Configure Gradle proxy
 
 If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /$HOME/.gradle directory, add the file the following properties:
 
@@ -31,13 +33,13 @@ systemProp.https.nonProxyHosts=localhost
 systemProp.https.auth.ntlm.domain=domain
 
 ```
-### Create Java projects directory
+### 1.3 Create Java projects directory
 
 Open the terminal and execute the commands below:
 
 `mkdir -p $HOME/Projects/Java`
 
-### Cloning java-templates repository
+### 1.4 Cloning java-templates repository
 
 Open the terminal and execute the commands below:
 
@@ -45,7 +47,7 @@ Open the terminal and execute the commands below:
 
 `git clone git@gitlab.campos.rj.gov.br:cubo/java-templates.git`
 
-### Installing the templates
+### 1.5 Installing the templates
 
 Open the terminal and execute the commands below:
 
@@ -57,7 +59,7 @@ To see if the templates were installed:
 
 `lazybones list --cache`
 
-## Setting up Development Enviroment
+## 2. Setting up Development Enviroment
 
 ### Creating a project from a template
 
