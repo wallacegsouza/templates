@@ -59,9 +59,9 @@ To see if the templates were installed:
 
 `lazybones list --cache`
 
-## 2. Setting up Development Enviroment
+## 2. Setting up Development Environment
 
-### Creating a project from a template
+### 2.1 Creating a project from a template
 
 Choose a different directory from this template project and execute the following command:
 
@@ -73,11 +73,11 @@ So if you wanted to create a new project based on spring-boot-web template in a 
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 
-### Building the application & Docker image
+### 2.2 Building the application & Docker image
 
 `gradle build`
 
-### Run docker-compose
+### 2.3 Run docker-compose
 
 `docker-compose up`
 
@@ -86,14 +86,14 @@ Note: Do not use the **lazybones create command** passing names with the charact
 1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
 2. Starts Spring boot application which populates database with some test data
 
-### Testing the application
+### 2.4 Testing the Application
 
 1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
 
-## Setting up Deploy Enviroment
+## 3. Setting up Deploy Environment
 
-### Creating a new application on Tsuru
+### 3.1 Creating a new application on Tsuru
 
 Once you've added a tsuru platform, it's time you create your application. Each application should have a unique name.
 
@@ -101,22 +101,22 @@ Before to create your new app, type `tsuru app-list <appname>` in terminal and i
 
 If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this git deploy url beacause you gonna need it in the next steps.
 
-### Bind Database Service
+### 3.2 Bind Database Service
 
 Now that you created you application on Tsuru, you need to bind the database service to you application. To do this, execute the following command in terminal: `tsuru service-instance-bind postgresapi db_tsuru-poc-rails-pg -a your-app-name`
 
-### Creating JAVA_ENV in Tsuru
+### 3.3 Creating JAVA_ENV in Tsuru
 
 In this step you nedd to create an enviroment variable in order to tell Tsuru that Gradle build is not in the development enviroment and must ignore the container image build task.
 
 So, in your terminal, type the following command: `tsuru env-set JAVA_ENV=production -a your-app-name`.
 
-### Binding your project on Tsuru to make the deploy
+### 3.4 Binding your project on Tsuru to make the deploy
 
 Now you gonna need the git deploy url (Git Repository) that you got in step 4. But if you lost it, run the following command in your terminal and you will be able to see the git deploy url of your application: `tsuru app-info -a your-app-name`. If you forgot your application name run the command `tsuru app-list`.
 
 Using the terminal, get inside the project created in the previous step and type the following command: `git remote add origin the-git-tsuru-deploy-url-of-your-project`.
 
-### Deploying your project on Tsuru
+### 3.5 Deploying your project on Tsuru
 
 To deploy your project on Tsuru run the following command: `git push --set-upstream origin master`
