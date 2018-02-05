@@ -2,7 +2,7 @@
 
 This templates helps you to create portable Java projects.
 
-We recommend you to use Ubuntu to correctly use of this templates.
+We recommend you to use Ubuntu to the correctly use of this templates.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ These instructions will generate you a copy of the project up and running on you
 
 ### Prerequisites
 
-In order to generate a Java project form one of ours templates you need to install the following softwares:
+In order to generate a Java project from one of this templates you need to install the following softwares:
 
 * [Git](INSTALL.GIT.md) - Version Control System
 * [SDKMAN](http://sdkman.io/install.html) - Software Development Kit Manager

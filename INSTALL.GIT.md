@@ -10,11 +10,11 @@ First of all, open your terminal and execute the following command:
 
 ### Installing
 
-Execute the commands below in your terminal and you will have Git downloaded, installed and configured in your computer.
+Execute the command below in your terminal and you will have Git downloaded, installed and configured in your computer.
 
 `sudo apt-get install git`
 
-## Configuring Git in your computer
+### Configuring Git in your computer
 
 Open your terminal and type the following commands.
 
@@ -28,8 +28,6 @@ To make your commits easily you need to create and configure SSH Key in your com
 
 ### Verifiy if the SSH key exists
 
-Explain what these tests test and why
-
 Firts you need to check if there is a SSH Key in your computer. So, open your terminal and type the command below to verifiy if you have ssh hidden directory in your machine:
 
 `ls -al ~/.ssh`
@@ -38,7 +36,7 @@ Firts you need to check if there is a SSH Key in your computer. So, open your te
 
 ### Creating SSH Key
 
-Open the terminal and type:
+Open the terminal and run:
 
 `ssh-keygen -t rsa -C "your_email@something.com"`
 
