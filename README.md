@@ -106,6 +106,6 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Spring Actuator
     - **Tsuru Deploy configuration**
 
-To create a **spring-boot-web** project follow the instructions of the [README](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/README.md) file inside spring-boot-web folder.
+To create a **spring-boot-web** project follow the instructions of this [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/README.md).
 
-To create a **spring-boot-web-tsuru** project follow the instructions of the [README](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web-tsuru/README.md) file inside spring-boot-web-tsuru folder.
+To create a **spring-boot-web-tsuru** project follow the instructions of the [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web-tsuru/README.md).

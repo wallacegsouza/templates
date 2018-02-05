@@ -1,4 +1,4 @@
-# Spring Boot Web Tsuru
+# Spring Boot Web
 
 This documentation helps you to set up a Spring Boot Web Application.
 
