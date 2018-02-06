@@ -32,7 +32,7 @@ This project use containers provided by Docker.
 
 In order to create a container for Pgadmin4, you need to create a folder in your host directory as Pgadmin4 volume folder.
 
-Create in your home directory (/home/$USER/), creates a folder called pgadmin4 and, in terminal, add permission running the following command: 
+Create in your home directory (/$HOME/), creates a folder called pgadmin4 and, in terminal, add permission running the following command: 
 
 `mkdir -p $HOME/pgadmin4`
 
