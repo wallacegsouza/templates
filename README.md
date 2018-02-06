@@ -97,6 +97,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Spring Actuator
 
 **spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
+
     - Gradle
     - Spring Boot
     - Spring Data JPA
