@@ -81,6 +81,24 @@ To see if the templates were installed:
 
 `lazybones list --cache`
 
+### 1.7 Configuring Microsoft Visual Studio Code (VS Code)
+
+If you want to use Microsoft Visual Studio Code (VS Code) follow the instructions bellow to configure the Editor.
+
+Create a file called _settings.json_ and add the following properties:
+
+```
+{
+    "explorer.confirmDelete": false,
+    "editor.tabSize": 2,
+    "editor.tabCompletion": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "editor.renderWhitespace": "all"
+}
+
+```
+
 ## 2. Creating projects by templates
 
 We have 2 (two) templates that you can choose and create your project from them: **spring-boot-web** and **spring-boot-web-tsuru**.
