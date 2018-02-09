@@ -12,7 +12,7 @@ Choose a different directory from this template project and execute the followin
 
 So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
-`lazybones create --with-git spring-boot-web-tsuru 0.1 yourspringbootwebapp`
+`lazybones create --with-git spring-boot-web-tsuru 0.4 yourspringbootwebapp`
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 

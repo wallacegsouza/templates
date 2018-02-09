@@ -2,6 +2,7 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
 
 group = "${group}"
 version = "${version}"
@@ -10,6 +11,12 @@ description = """Demo project for Spring Boot Web"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+String dev = 'development'
+String test = 'test'
+String environment = project.hasProperty('jenv')? project.property('jenv') : dev
+
+System.setProperty 'jenv', environment
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -23,12 +30,20 @@ repositories {
 
 dependencies {
     //compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
     compile 'org.springframework.boot:spring-boot-starter-web'
-    runtime 'org.postgresql:postgresql'
+    runtime test.equals(environment)? 'com.h2database:h2': 'org.postgresql:postgresql'
+
     compile 'org.flywaydb:flyway-core'
+
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
+
+    //http://springfox.github.io/springfox/docs/snapshot/
+    compile 'io.springfox:springfox-swagger2:2.8.0'
+    compile 'io.springfox:springfox-swagger-ui:2.8.0'
 
     // Use the latest Groovy version for Spock testing
     testCompile 'org.codehaus.groovy:groovy-all:2.4.12'
@@ -42,26 +57,41 @@ dependencies {
     testRuntime 'com.h2database:h2'
 }
 
-jar {
-    baseName = "${artifact}"
-    manifest {
-      attributes 'Main-Class': "${pkg}.DemoApplication"
-    }
-}
+// BUILD
+
+mainClassName = "${pkg}.DemoApplication"
+
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'ru.vyarus.quality'
+apply plugin: 'com.bmuschko.docker-remote-api'
 
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
         maven { url 'https://repo.spring.io/plugins-snapshot' }
     }
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:1.0.5.BUILD-SNAPSHOT'
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.5.BUILD-SNAPSHOT'
+        //Gradle plugin for managing Docker images and containers.
+        //https://github.com/bmuschko/gradle-docker-plugin
         classpath 'com.bmuschko:gradle-docker-plugin:3.0.8'
+        //In the spirit of the Maven Versions Plugin, this plugin provides a task to
+        // determine which dependencies have updates.
+        //https://github.com/ben-manes/gradle-versions-plugin
+        //>>> gradle dependencyUpdates -Drevision=release
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+        //Gradle quality plugin for Java and Groovy.
+        //https://github.com/xvik/gradle-quality-plugin
+        classpath 'ru.vyarus:gradle-quality-plugin:2.4.0'
     }
 }
 
-apply plugin: 'com.bmuschko.docker-remote-api'
+quality {
+    exclude '**/DemoApplication.java'
+    strict = false
+}
 
 // Docker config
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
@@ -71,10 +101,15 @@ task createDockerImage(type: DockerBuildImage) {
     tags = ["${artifact}-docker"]
 }
 
-String dev = "development"
-
-String environment = System.getenv("JAVA_ENV") ?: dev
+build.finalizedBy(createDockerImage)
 
 createDockerImage.enabled = dev.equals(environment)
+check.enabled = test.equals(environment)
 
-build.finalizedBy(createDockerImage)
+apply from: rootProject.file('gradle/versions-plugin-check.gradle')
+
+// The run task added by the application plugin is also of type JavaExec.
+tasks.withType(JavaExec) {
+    // Assign all Java system properties from the command line to the JavaExec task.
+    systemProperties System.properties
+}

@@ -6,7 +6,7 @@ services:
     image: postgres:9.6
     container_name: postgres
     ports:
-      - "5432:5432"
+      - "4321:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
@@ -32,9 +32,17 @@ services:
     depends_on:
       - database
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/mydb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:4321/mydb
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    image: ccidadao-docker
+    container_name: webapptest
+    command: sh docker/test.sh
 
 volumes: 
   pgdata:

@@ -11,13 +11,13 @@ import ${pkg}.service.ItemService;
 
 @RestController
 public class ItemController {
-	
-	@Autowired
-	private ItemService itemService;
-	
-	@GetMapping("/")
-	public List<Item> items() {
-		return itemService.findAll();
-	}
+  
+  @Autowired
+  private ItemService itemService;
+  
+  @GetMapping("/")
+  public List<Item> items() {
+    return itemService.findAll();
+  }
 
 }

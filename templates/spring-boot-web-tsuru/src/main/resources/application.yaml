@@ -7,3 +7,11 @@ spring:
 
 flyway:
   schemas: $artifact
+
+endpoints:
+  beans:
+    sensitive: false
+
+management:
+  security:
+    enabled: false

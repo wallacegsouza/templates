@@ -2,7 +2,7 @@
 # with no frills: just Java and a JAR file. The project JAR file is ADDed to the
 # container as "app.jar" and then executed in the ENTRYPOINT.
 
-FROM jhonyscamacho/java-8u152-zulu-smaller-2
+FROM jhonyscamacho/java8
 
 # WORKDIR /tmp
 

@@ -13,20 +13,20 @@ import ${pkg}.repository.ItemRepository;
 
 @Service
 public class ItemService {
-	
-	@Autowired
-	private ItemRepository itemRepository;
-	
-	@Transactional
-	@PostConstruct
-	public void init() {
-		itemRepository.save(new Item(1, "A"));
-		itemRepository.save(new Item(2, "B"));
-		itemRepository.save(new Item(3, "C"));
-	}
-	
-	public List<Item> findAll() {
-		return itemRepository.findAll();
-	}
+
+  @Autowired
+  private ItemRepository itemRepository;
+
+  @Transactional
+  @PostConstruct
+  public void init() {
+    itemRepository.save(new Item(1, "A"));
+    itemRepository.save(new Item(2, "B"));
+    itemRepository.save(new Item(3, "C"));
+  }
+
+  public List<Item> findAll() {
+    return itemRepository.findAll();
+  }
 
 }
