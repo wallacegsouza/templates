@@ -40,7 +40,7 @@ Note: Do not use the **lazybones create command** passing names with the charact
 
 Once you've added a tsuru platform, it's time you create your application. Each application should have a unique name.
 
-Before to create your new app, type `tsuru app-list <appname>` in terminal and if the there is no app with the name you intend to give to your app, type in terminal `tsuru app-create your-app-name java-8u152-zulu`.
+Before to create your new app, type `tsuru app-list <appname>` in terminal and if the there is no app with the name you intend to give to your app, type in terminal ~~`tsuru app-create your-app-name java-8u152-zulu`~~ `tsuru app-create your-app-name java8`.
 
 If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this git deploy url beacause you gonna need it in the next steps.
 
