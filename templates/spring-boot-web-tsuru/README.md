@@ -16,13 +16,31 @@ So if you wanted to create a new project based on spring-boot-web template in a 
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 
-### 1.2 Building the application & Docker image
+### 1.2 Setting up Test Environment
+
+If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /yourspringbootwebapp/.gradle directory, add the file the following properties:
+
+```
+org.gradle.jvmargs=-Xmx1536m
+systemProp.http.proxyHost=proxy.campos.rj.gov.br
+systemProp.http.proxyPort=80
+systemProp.http.nonProxyHosts=localhost
+systemProp.http.auth.ntlm.domain=domain
+
+systemProp.https.proxyHost=proxy.campos.rj.gov.br
+systemProp.https.proxyPort=80
+systemProp.https.nonProxyHosts=localhost
+systemProp.https.auth.ntlm.domain=domain
+
+```
+
+### 1.3 Building the application & Docker image
 
 `cd yourspringbootwebapp`
 
 `gradle build`
 
-### 1.3 Run docker-compose
+### 1.4 Run docker-compose
 
 `docker-compose up`
 
@@ -31,7 +49,7 @@ Note: Do not use the **lazybones create command** passing names with the charact
 1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
 2. Starts Spring boot application which populates database with some test data
 
-### 1.4 Testing the Application
+### 1.5 Testing the Application
 
 1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
