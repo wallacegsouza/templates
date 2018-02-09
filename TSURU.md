@@ -53,4 +53,4 @@ To correctly name your platform we recommend you to follow the instructions bell
 
 So, in order to follow the instructions above, we are going to add a Java 8 platform called **java8u152-zulu**. But first, let's list the Tsuru Platform and check if there is no platform with this name. 
 
-Open the terminal and type `tsuru platform-list` to list the tsuru available platforms.**If there is no platform called java8u152-zulu** type, in terminal, `tsuru platform-add java-8u152-zulu -i jhonyscamacho/java-8u152-zulu` and done! You successfully added a new platform to tsuru!
+Open the terminal and type `tsuru platform-list` to list the tsuru available platforms.**If there is no platform called java8u152-zulu** type, in terminal, ~~`tsuru platform-add java-8u152-zulu -i jhonyscamacho/java-8u152-zulu`~~ `tsuru platform-add java-8u152-zulu -i jhonyscamacho/java8` and done! You successfully added a new platform to tsuru!
