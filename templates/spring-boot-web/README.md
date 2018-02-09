@@ -18,6 +18,8 @@ Note: Do not use the **lazybones create command** passing names with the charact
 
 ### 1.2 Building the application & Docker image
 
+`cd yourspringbootwebapp`
+
 `gradle build`
 
 ### 1.3 Run docker-compose
