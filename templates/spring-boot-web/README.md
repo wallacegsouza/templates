@@ -22,16 +22,31 @@ Note: Do not use the **lazybones create command** passing names with the charact
 
 `gradle build`
 
-### 1.3 Run docker-compose
+### 1.3 Development commands and tips
 
-`docker-compose up`
+If you want tips asnd more information about the development enviroment take a look at this [link]
+(https://gitlab.com/jhonys.camacho/java-templates/blob/master/templates/spring-boot-web/doc/DEVELOPMENT.md)
+
+## 2. Running the application
+
+### 2.1 Running the application in development environment containers
+
+To run the development environment containers run `docker-compose up --build app`
+
+To stop the containers run `docker-compose down`
 
 **What happens:**
 
 1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
 2. Starts Spring boot application which populates database with some test data
 
-### 1.4 Testing the Application
+#### 2.1.2 Testing the Application
 
 1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
+
+### 2.2 Running the application in test environment container
+
+To run the test environment container run `docker-compose up --build test`
+
+To stop the container run `docker-compose down`

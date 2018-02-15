@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=mydb  # You should choose a better name for your database. 
-                          # Do not forget to change the url propertie in the application.yaml
+                          # Do not forget to change the url propertie in the app SPRING_DATASOURCE_URL environment
   pgadmin:
     image: thajeztah/pgadmin4
     container_name: pgadmin4
@@ -25,24 +25,26 @@ services:
       - database
 
   app:
-    image: appname-docker
+    image: ${artifact}
     container_name: webapp
     ports:
       - "8080:8080"
     depends_on:
       - database
+      - pgadmin
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/mydb
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
   test:
+    image: ${artifact}-test
+    container_name: webapptest
     build:
       context: .
       dockerfile: Dockerfile.test
-    image: ccidadao-docker
-    container_name: webapptest
     command: sh docker/test.sh
+
 
 volumes: 
   pgdata:

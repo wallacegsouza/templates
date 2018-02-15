@@ -1,8 +1,5 @@
-# This Dockerfile is very simple, but that’s all you need to run a Spring Boot app 
-# with no frills: just Java and a JAR file. The project JAR file is ADDed to the
-# container as "app.jar" and then executed in the ENTRYPOINT.
+# This Dockerfile is very simple, but that’s all you need to run tests in a Spring Boot app.
 
 FROM jhonyscamacho/java8
 
-WORKDIR /hello-jenkins-java-templates
 COPY . .

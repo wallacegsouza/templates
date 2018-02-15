@@ -40,23 +40,38 @@ systemProp.https.auth.ntlm.domain=domain
 
 `gradle build`
 
-### 1.4 Run docker-compose
+### 1.4 Development commands and tips
 
-`docker-compose up`
+If you want tips asnd more information about the development enviroment take a look at this [link]
+(https://gitlab.com/jhonys.camacho/java-templates/blob/master/templates/spring-boot-web-tsuru/doc/DEVELOPMENT.md)
+
+## 2. Running the application
+
+### 2.1 Running the application in development environment containers
+
+To run the development environment containers run `docker-compose up --build app`
+
+To stop the containers run `docker-compose down`
 
 **What happens:**
 
 1. Starts Postgresql and waits up to 15 seconds for it to finish ([using wait-for-it](https://github.com/vishnubob/wait-for-it))
 2. Starts Spring boot application which populates database with some test data
 
-### 1.5 Testing the Application
+#### 2.1.2 Testing the Application
 
 1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
 
-## 2. Setting up Deploy Environment
+### 2.2 Running the application in test environment container
 
-### 2.1 Creating a new application on Tsuru
+To run the test environment container run `docker-compose up --build test`
+
+To stop the container run `docker-compose down`
+
+## 3. Setting up Deploy Environment
+
+### 3.1 Creating a new application on Tsuru
 
 Once you've added a tsuru platform, it's time you create your application. Each application should have a unique name.
 
@@ -64,16 +79,16 @@ Before to create your new app, type `tsuru app-list <appname>` in terminal and i
 
 If you succeeded in creating your app you should be able to see something like te following message on your terminal: `git@10.131.189.70.nip.io:you-app.git`. Copy and save this git deploy url beacause you gonna need it in the next steps.
 
-### 2.2 Bind Database Service
+### 3.2 Bind Database Service
 
 Now that you created you application on Tsuru, you need to bind the database service to you application. To do this, execute the following command in terminal: `tsuru service-instance-bind postgresapi db_tsuru-poc-rails-pg -a your-app-name`
 
-### 2.3 Binding your project on Tsuru to make the deploy
+### 3.3 Binding your project on Tsuru to make the deploy
 
 Now you gonna need the git deploy url (Git Repository) that you got in step 4. But if you lost it, run the following command in your terminal and you will be able to see the git deploy url of your application: `tsuru app-info -a your-app-name`. If you forgot your application name run the command `tsuru app-list`.
 
 Using the terminal, get inside the project created in the previous step and type the following command: `git remote add origin the-git-tsuru-deploy-url-of-your-project`.
 
-### 2.4 Deploying your project on Tsuru
+### 3.4 Deploying your project on Tsuru
 
 To deploy your project on Tsuru run the following command: `git push --set-upstream origin master`

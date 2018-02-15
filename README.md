@@ -99,6 +99,17 @@ Create a file called _settings.json_ and add the following properties:
 
 ```
 
+You could also use the following plugins:
+
+* [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+* [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+* [Git Project Manager](https://marketplace.visualstudio.com/items?itemName=felipecaputo.git-project-manager)
+* [gitLens - Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+
+
 ## 2. Creating projects by templates
 
 We have 2 (two) templates that you can choose and create your project from them: **spring-boot-web** and **spring-boot-web-tsuru**.
@@ -113,6 +124,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - PostgreSQL connection database
     - Guava
     - Spring Actuator
+    - Swagger
 
 **spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
 
@@ -124,6 +136,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - PostgreSQL connection database
     - Guava
     - Spring Actuator
+    - Swagger
     - **Tsuru Deploy configuration**
 
 ### 2.1 Creating a Spring Boot Web project 

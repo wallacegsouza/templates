@@ -1,2 +1,3 @@
+
 #! /bin/bash
-sudo ./gradlew test -Pjenv=test  --info --stacktrace
+./gradlew test -Pjenv=test  --info --stacktrace

@@ -98,7 +98,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
 task createDockerImage(type: DockerBuildImage) {
     inputDir = file('.')
-    tags = ["${artifact}-docker"]
+    tags = ["${artifact}"]
 }
 
 build.finalizedBy(createDockerImage)
