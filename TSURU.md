@@ -19,7 +19,9 @@ The following links describes how you can install tsuru CLI, using pre-compiled 
 
 In order to use this tsuru server, you need to add it to your set of targets. Open your terminal and type: 
 
-`tsuru target-add default http://10.131.189.70:8080 -s`
+```
+tsuru target-add default http://10.131.189.70:8080 -s
+```
 
 ## Accessing Tsuru dashboard
 
@@ -27,7 +29,11 @@ You can also access Tsuru dashboard from this [link](http://tsuru-dashboard.10.1
 
 ## Login on Tsuru
 
-Open the terminal and type the following command: `tsuru login`
+Open the terminal and type the following command:
+
+```
+tsuru login
+```
 
 Input your e-mail and password and done! You successfully logged in!
 
@@ -35,7 +41,9 @@ Input your e-mail and password and done! You successfully logged in!
 
 In order to deploy your application using git push, you need to have an SSH key registered with tsuru, you can add a new SSH key using the key-add command:
 
-`tsuru key-add yourname-rsa-key ~/.ssh/id_rsa.pub`
+```
+tsuru key-add yourname-rsa-key ~/.ssh/id_rsa.pub
+```
 
 Any key accepted by OpenSSH can be used with tsuru, this includes formats like RSA and DSA.
 

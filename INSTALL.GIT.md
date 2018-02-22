@@ -1,4 +1,4 @@
-# Install Git
+  # Install Git
 
 This documentation will help you to install and configure Git in your computer
 
@@ -6,21 +6,26 @@ This documentation will help you to install and configure Git in your computer
 
 First of all, open your terminal and execute the following command:
 
-`sudo apt-get update`
+```
+sudo apt-get update
+```
 
 ### Installing
 
 Execute the command below in your terminal and you will have Git downloaded, installed and configured in your computer.
 
-`sudo apt-get install git`
+```
+sudo apt-get install git
+```
 
 ### Configuring Git in your computer
 
 Open your terminal and type the following commands.
 
-`git config --global user.name "Your Name"`
-
-`git config --global user.email "youremail@domain.com"`
+```
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+```
 
 ## Install and configure SSH Key to GitHub/GitLab/Bitbucket
 
@@ -30,7 +35,9 @@ To make your commits easily you need to create and configure SSH Key in your com
 
 Firts you need to check if there is a SSH Key in your computer. So, open your terminal and type the command below to verifiy if you have ssh hidden directory in your machine:
 
-`ls -al ~/.ssh`
+```
+ls -al ~/.ssh
+```
 
 **If the result of the command above return somethig like _id_rsa.pub_, it means that you have a SSH Key in your computer. So, skip the next step.**
 
@@ -38,7 +45,9 @@ Firts you need to check if there is a SSH Key in your computer. So, open your te
 
 Open the terminal and run:
 
-`ssh-keygen -t rsa -C "your_email@something.com"`
+```
+ssh-keygen -t rsa -C "your_email@something.com"
+```
 
 ### Adding SSH key to GitLab
 

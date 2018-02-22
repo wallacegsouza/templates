@@ -8,19 +8,24 @@ This documentation helps you to set up a Spring Boot Web Application.
 
 Choose a different directory from this template project and execute the following command:
 
-`lazybones create --with-git <template name> <template version> <target directory>`
+```
+lazybones create --with-git <template name> <template version> <target directory>
+```
 
 So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
-`lazybones create --with-git spring-boot-web 0.4 yourspringbootwebapp`
+```
+lazybones create --with-git spring-boot-web 0.4 yourspringbootwebapp
+```
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 
 ### 1.2 Building the application & Docker image
 
-`cd yourspringbootwebapp`
-
-`gradle build`
+```
+cd yourspringbootwebapp
+gradle build
+```
 
 ### 1.3 Development commands and tips
 
@@ -31,9 +36,17 @@ If you want tips asnd more information about the development enviroment take a l
 
 ### 2.1 Running the application in development environment containers
 
-To run the development environment containers run `docker-compose up --build app`
+To run the development environment containers run:
 
-To stop the containers run `docker-compose down`
+```
+docker-compose up --build app
+```
+
+To stop the containers run:
+
+```
+docker-compose down
+```
 
 **What happens:**
 
@@ -42,11 +55,24 @@ To stop the containers run `docker-compose down`
 
 #### 2.1.2 Testing the Application
 
-1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
+1. Navigate to <http://localhost:8080> and you should see:
+
+```
+[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]
+```
+
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
 
 ### 2.2 Running the application in test environment container
 
-To run the test environment container run `docker-compose up --build test`
+To run the test environment container run:
 
-To stop the container run `docker-compose down`
+```
+docker-compose up --build test
+```
+
+To stop the container run:
+
+```
+docker-compose down
+```

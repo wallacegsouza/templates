@@ -8,11 +8,15 @@ This documentation helps you to set up a Spring Boot Web Application to deploy w
 
 Choose a different directory from this template project and execute the following command:
 
-`lazybones create --with-git <template name> <template version> <target directory>`
+```
+lazybones create --with-git <template name> <template version> <target directory>
+```
 
 So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
-`lazybones create --with-git spring-boot-web-tsuru 0.2 yourspringbootwebapp`
+```
+lazybones create --with-git spring-boot-web-tsuru 0.2 yourspringbootwebapp
+```
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
 
@@ -36,9 +40,10 @@ systemProp.https.auth.ntlm.domain=domain
 
 ### 1.3 Building the application & Docker image
 
-`cd yourspringbootwebapp`
-
-`gradle build`
+```
+cd yourspringbootwebappyourspringbootwebapp
+gradle build
+```
 
 ### 1.4 Development commands and tips
 
@@ -49,9 +54,17 @@ If you want tips asnd more information about the development enviroment take a l
 
 ### 2.1 Running the application in development environment containers
 
-To run the development environment containers run `docker-compose up --build app`
+To run the development environment containers run:
 
-To stop the containers run `docker-compose down`
+```
+docker-compose up --build app
+```
+
+To stop the containers run:
+
+```
+docker-compose down
+```
 
 **What happens:**
 
@@ -60,14 +73,26 @@ To stop the containers run `docker-compose down`
 
 #### 2.1.2 Testing the Application
 
-1. Navigate to <http://localhost:8080> and you should see: `[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]`
+1. Navigate to <http://localhost:8080> and you should see: 
+
+```
+[{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]
+```
 2. Navigate to <http://localhost:5050> and you should see the Pgadmin home page. To connect to the database you need to pass your IP address for the Host.
 
 ### 2.2 Running the application in test environment container
 
-To run the test environment container run `docker-compose up --build test`
+To run the test environment container run:
 
-To stop the container run `docker-compose down`
+```
+docker-compose up --build test
+```
+
+To stop the container run:
+
+```
+docker-compose down
+```
 
 ## 3. Setting up Deploy Environment
 
@@ -81,14 +106,36 @@ If you succeeded in creating your app you should be able to see something like t
 
 ### 3.2 Bind Database Service
 
-Now that you created you application on Tsuru, you need to bind the database service to you application. To do this, execute the following command in terminal: `tsuru service-instance-bind postgresapi db_tsuru-poc-rails-pg -a your-app-name`
+Now that you created you application on Tsuru, you need to bind the database service to you application. To do this, execute the following command in terminal: 
+
+```
+tsuru service-instance-bind postgresapi db_tsuru-poc-rails-pg -a your-app-name
+```
 
 ### 3.3 Binding your project on Tsuru to make the deploy
 
-Now you gonna need the git deploy url (Git Repository) that you got in step 4. But if you lost it, run the following command in your terminal and you will be able to see the git deploy url of your application: `tsuru app-info -a your-app-name`. If you forgot your application name run the command `tsuru app-list`.
+Now you gonna need the git deploy url (Git Repository) that you got in step 4. But if you lost it, run the following command in your terminal and you will be able to see the git deploy url of your application:
 
-Using the terminal, get inside the project created in the previous step and type the following command: `git remote add origin the-git-tsuru-deploy-url-of-your-project`.
+```
+tsuru app-info -a your-app-name
+```
+
+ If you forgot your application name run the command:
+ 
+```
+tsuru app-list
+```
+
+Using the terminal, get inside the project created in the previous step and type the following command: 
+
+```
+git remote add origin the-git-tsuru-deploy-url-of-your-project
+```
 
 ### 3.4 Deploying your project on Tsuru
 
-To deploy your project on Tsuru run the following command: `git push --set-upstream origin master`
+To deploy your project on Tsuru run the following command:
+
+```
+git push --set-upstream origin master
+```

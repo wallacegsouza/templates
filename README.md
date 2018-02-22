@@ -17,10 +17,12 @@ In order to generate a Java project from one of this templates you need to insta
 
 Open your terminal and type the command below:
 
-`sdk install java`
-`sdk install maven`
-`sdk install gradle`
-`sdk install lazybones`
+```
+sdk install java
+sdk install maven
+sdk install gradle
+sdk install lazybones
+```
 
 Lazybones allows you to create a new project structure for any framework or library for which the tool has a template. 
 
@@ -34,9 +36,10 @@ In order to create a container for Pgadmin4, you need to create a folder in your
 
 Create in your home directory (/$HOME/), creates a folder called pgadmin4 and, in terminal, add permission running the following command: 
 
-`mkdir -p $HOME/pgadmin4`
-
-`sudo chmod 777 /$HOME/pgadmin4`
+```
+mkdir -p $HOME/pgadmin4
+sudo chmod 777 /$HOME/pgadmin4
+```
 
 ### 1.3 Configure Gradle proxy
 
@@ -53,33 +56,38 @@ systemProp.https.proxyHost=proxy.campos.rj.gov.br
 systemProp.https.proxyPort=80
 systemProp.https.nonProxyHosts=localhost
 systemProp.https.auth.ntlm.domain=domain
-
 ```
 ### 1.4 Create Java projects directory
 
 Open the terminal and execute the commands below:
 
-`mkdir -p $HOME/Projects/Java`
+```
+mkdir -p $HOME/Projects/Java
+```
 
 ### 1.5 Cloning java-templates repository
 
 Open the terminal and execute the commands below:
 
-`cd $HOME/Projects/Java`
-
-`git clone git@gitlab.campos.rj.gov.br:cubo/java-templates.git`
+```
+cd $HOME/Projects/Java
+git clone git@gitlab.campos.rj.gov.br:cubo/java-templates.git
+```
 
 ### 1.6 Installing the templates
 
 Open the terminal and execute the commands below:
 
-`cd $HOME/Projects/Java/java-templates`
-
-`./gradlew installAllTemplates`
+```
+cd $HOME/Projects/Java/java-templates
+./gradlew installAllTemplates
+```
 
 To see if the templates were installed:
 
-`lazybones list --cache`
+```
+lazybones list --cache
+```
 
 ### 1.7 Configuring Microsoft Visual Studio Code (VS Code)
 

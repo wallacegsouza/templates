@@ -6,25 +6,32 @@ This section describes, in 6 steps, the procedure to download and install docker
 
 In your browser, open this [link](https://get.docker.com/) and inside the webpage, look for the line bellow, then copy and paste on terminal:
 
-`curl -fsSL get.docker.com -o get-docker.sh`
+```
+curl -fsSL get.docker.com -o get-docker.sh
+```
 
 Also look for the line bellow and copy and paste on terminal:
 
-`sh get-docker.sh`
+```
+sh get-docker.sh
+```
 
 ## Add your user to the "docker" group type
 
 To add your user to the "docker" group type, open the terminal and add the command below. Reboot your operating system after execute this command to be sure that it’s will work as expected.
 
-`sudo usermod -aG docker $USER`
+```
+sudo usermod -aG docker $USER
+```
 
 ## Test if docker is running correctly
 
 To test if docker is running correctly type in terminal the following commands and you should see the Client and Server version:
 
-`sudo docker version`
-
-`docker version`
+```
+sudo docker version
+docker version
+```
 
 ## Installing Docker Machine
 
@@ -34,7 +41,9 @@ You can also find the same instructions at [https://docs.docker.com/machine/inst
 
 To test if Docker Machine has been installed type this command in terminal:
 
-`docker-machine version`
+```
+docker-machine version
+```
 
 ## Installing Docker Compose
 
@@ -44,22 +53,30 @@ You can also find the same instructions at [https://docs.docker.com/compose/inst
 
 To test if Docker Compose has been installed type this command in terminal:
 
-`docker-compose version`
+```
+docker-compose version
+```
 
 ## Configuring proxy
 
 If you are behind a HTTP or HTTPS proxy server follow this link: [https://docs.docker.com/engine/admin/systemd/#httphttps-proxy](https://docs.docker.com/engine/admin/systemd/#httphttps-proxy)
 
-**P.S.1:** Docker DNS configuration looks for Google DNS and proxy.campos.rj.gov.br domain is not registered at Google DNS. So, to use docker behind the Prefeitura Municipal de Campos dos Goytacazes proxy, you need to use the IP address instead the domain name.
+> **Note:** 
+Docker DNS configuration looks for Google DNS and proxy.campos.rj.gov.br domain is not registered at Google DNS. So, to use docker behind the Prefeitura Municipal de Campos dos Goytacazes proxy, you need to use the IP address instead the domain name.
+>
+>Prefeitura Municipal de Campos dos Goytacazes proxy IP address is: 10.131.188.1
+>
 
-**P.S.2:** Prefeitura Municipal de Campos dos Goytacazes proxy IP address is: 10.131.188.1
+http-proxy.conf file must have this configuration:
 
-**P.S.3:** http-proxy.conf file must have this configuration:
+```
+[Service]
+Environment="HTTP_PROXY=http://10.131.188.1:80/"
+```
 
-`[Service]
-Environment="HTTP_PROXY=http://10.131.188.1:80/"`
+https-proxy.conf file must have this configuration:
 
-**P.S.4:** https-proxy.conf file must have this configuration:
-
-`[Service]
-Environment="HTTPS_PROXY=http://10.131.188.1:80/"`
+```
+[Service]
+Environment="HTTPS_PROXY=http://10.131.188.1:80/"
+```
