@@ -38,12 +38,12 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
 
   test:
-    image: ${artifact}-test
-    container_name: webapptest
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    command: sh docker/test.sh
+    image: gradle:4.5.1-jdk8-alpine
+    container_name: gradletest
+    volumes:
+      - $HOME/.gradle:/home/gradle/.gradle
+      - .:/home/gradle
+    command: gradle test -Pjenv=test --stacktrace
 
 
 volumes: 

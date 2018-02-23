@@ -1,5 +1,0 @@
-# This Dockerfile is very simple, but that’s all you need to run tests in a Spring Boot app.
-
-FROM openjdk:latest
-
-COPY . .
