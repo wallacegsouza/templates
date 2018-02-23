@@ -4,18 +4,13 @@
 
 FROM openjdk:8u151-jdk-alpine3.7
 
-# WORKDIR /tmp
+ENV http_proxy http://10.131.188.1:80/
+ENV https_proxy http://10.131.188.1:80/
 
-# # We added a VOLUME pointing to "/tmp" because that is where a Spring Boot application 
-# # creates working directories for Tomcat by default. The effect is to create a temporary file
-# # on your host under "/var/lib/docker" and link it to the container under "/tmp". 
-# # This step is optional for the simple app that we wrote here, but can be necessary for other
-# # Spring Boot applications if they need to actually write in the filesystem.
-# VOLUME /tmp
+RUN apk update && apk add openssh-client bash
 
 COPY build/libs/*.jar app.jar
 COPY docker/start.sh start.sh
 COPY docker/wait-for-it.sh wait-for-it.sh
 
-#RUN sh -c 'touch app.jar'
 ENTRYPOINT ["./start.sh"]

@@ -37,13 +37,13 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
-  test:
-    image: gradle:4.5.1-jdk8-alpine
-    container_name: gradletest
-    volumes:
-      - \$HOME/.gradle:/home/gradle/.gradle
-      - .:/home/gradle
-    command: gradle test -Pjenv=test --stacktrace
+  # test:
+  #   image: gradle:4.5.1-jdk8-alpine
+  #   container_name: gradletest
+  #   volumes:
+  #     - \$HOME/.gradle:/home/gradle/.gradle
+  #     - .:/home/gradle
+  #   command: gradle test -Pjenv=test --stacktrace
 
 volumes: 
   pgdata:
