@@ -1,0 +1,10 @@
+hooks:
+  build:
+    - ./gradlew --info clean build -Pjenv=production
+
+healthcheck:
+  path: /health
+  method: GET
+  status: 200
+  match: .*UP.*
+  allowed_failures: 0

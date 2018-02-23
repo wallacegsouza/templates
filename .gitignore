@@ -1,4 +1,5 @@
 .gradle
+spring-boot-web/.gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 

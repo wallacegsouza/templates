@@ -7,6 +7,17 @@ String artifact = ask("Define value for 'artifact' [appname]: ", "appname", "art
 props.artifact = artifact.trim().toLowerCase()
 //TODO replace com erro .replaceAll("[^a-z]","")​ -> No such property: ​ for class: java.lang.String
 
+def mapPaas = ['t': "tsuru", 'a': "aws", 'g': "google", 'n': "none"]
+println """
+Define platform as a service:
+t) tsuru
+a) aws
+g) google
+n) none
+"""
+String aux = ask("value default is t: ", "t")
+String paas = mapPaas[aux]
+
 props.projectDir = projectDir
 
 props.pkg = props.group + "." + props.artifact
@@ -43,6 +54,20 @@ import org.apache.commons.io.FileUtils
   FileUtils.moveToDirectory(new File(old_groovy_test_dir + separator + it), dir_groovy_test_project, true)
 }
 
-FileUtils.moveFile( 
+FileUtils.moveFile(
   new File(projectDir, "gitignore.txt"),
   new File(projectDir, ".gitignore"))
+
+ String paas_dir = [projectDir, "paas"].join(separator)
+
+if(paas && 'none' != paas) {
+  def passFileDir = new File(paas_dir + separator + paas)
+  passFileDir.listFiles().each {
+    FileUtils.moveFileToDirectory(it, projectDir, false)
+  }
+}
+
+FileUtils.deleteDirectory(new File(paas_dir))
+FileUtils.deleteDirectory(new File(".lazybones"))
+
+new File([projectDir, ".gradle"].join(separator)).mkdirs()

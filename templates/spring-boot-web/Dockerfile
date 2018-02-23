@@ -2,7 +2,7 @@
 # with no frills: just Java and a JAR file. The project JAR file is ADDed to the
 # container as "app.jar" and then executed in the ENTRYPOINT.
 
-FROM openjdk:latest
+FROM openjdk:8u151-jdk-alpine3.7
 
 # WORKDIR /tmp
 
