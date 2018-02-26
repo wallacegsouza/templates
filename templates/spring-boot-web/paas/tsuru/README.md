@@ -22,7 +22,9 @@ Note: Do not use the **lazybones create command** passing names with the charact
 
 ### 1.2 Setting up Test Environment
 
+> **Note:** 
 If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /yourspringbootwebapp/.gradle directory, add the file the following properties:
+>
 
 ```
 org.gradle.jvmargs=-Xmx1536m

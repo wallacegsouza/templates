@@ -43,7 +43,9 @@ sudo chmod 777 /$HOME/pgadmin4
 
 ### 1.3 Configure Gradle proxy
 
+> **Note:** 
 If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /$HOME/.gradle directory, add the file the following properties:
+>
 
 ```
 org.gradle.jvmargs=-Xmx1536m
