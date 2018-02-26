@@ -1,0 +1,39 @@
+#The artifact that will be used to deploy is referenced in:
+# - build_job.artifacts.path
+# - job_template.script
+
+stages:
+  - test
+  - build
+  - cleanup
+  
+variables:
+  JAVA_OPTS: -Dhttp.proxyHost=proxy.campos.rj.gov.br -Dhttp.proxyPort=80
+
+image: gradle:4.5.1-jdk8-alpine
+
+test:
+  stage: test
+  artifacts:
+    paths:
+      - build/reports/
+  script:
+    - gradle test --info --stacktrace
+
+build_job:
+  stage: build
+  script:
+    - gradle build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  dependencies:
+    - test
+
+cleanup_build:
+  stage: cleanup
+  script:
+    - rm -fR build/classes/ build/resources/ build/tmp/
+  when: on_failure
+  dependencies:
+    - build_job

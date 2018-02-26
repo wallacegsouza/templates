@@ -1,0 +1,70 @@
+#The artifact that will be used to deploy is referenced in:
+# - build_job.artifacts.path
+# - job_template.script
+
+stages:
+  - test
+  - build
+  - cleanup
+  - deploy
+  
+variables:
+  TSURU_TOKEN: d0df2c9b84e52bde94ccb620bf150eeccd2e0fdd9bbe0219be574e2f71cf1f71
+  TSURU_TARGET: 10.131.189.70:8080
+  JAVA_OPTS: -Dhttp.proxyHost=proxy.campos.rj.gov.br -Dhttp.proxyPort=80
+
+image: gradle:4.5.1-jdk8-alpine
+
+test:
+  stage: test
+  artifacts:
+    paths:
+      - build/reports/
+  script:
+    - gradle test --info --stacktrace
+
+build_job:
+  stage: build
+  script:
+    - gradle build -x test
+  artifacts:
+    paths:
+      - build/libs/*.jar
+  dependencies:
+    - test
+
+cleanup_build:
+  stage: cleanup
+  script:
+    - rm -fR build/classes/ build/resources/ build/tmp/
+  when: on_failure
+  dependencies:
+    - build_job
+
+.job_template: &deploy_definition
+  image: tsuru/client:latest
+  stage: deploy
+  script:
+    - tsuru app-deploy -a ${CI_PROJECT_NAME}-${DEPLOY_MODE} build/libs/*.jar Procfile tsuru.yaml
+  dependencies:
+    - build_job
+
+deploy-staging-tsuru:
+  <<: *deploy_definition
+  only:
+    - develop
+  when: manual
+  environment:
+    name: staging
+  variables:
+    DEPLOY_MODE: staging
+
+deploy-production-tsuru:
+  <<: *deploy_definition
+  only:
+    - master
+  when: manual
+  environment:
+    name: production
+  variables:
+    DEPLOY_MODE: production

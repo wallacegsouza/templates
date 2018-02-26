@@ -73,7 +73,7 @@ docker-compose down
 
 #### 2.1.2 Testing the Application
 
-1. Navigate to <http://localhost:8080> and you should see: 
+1. Navigate to <http://localhost:8080> and you should see:
 
 ```
 [{"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"C"}]
@@ -136,7 +136,7 @@ tsuru app-info -a your-app-name
 ```
 
  If you forgot your application name run the command:
- 
+
 ```
 tsuru app-list
 ```
