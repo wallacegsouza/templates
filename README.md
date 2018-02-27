@@ -137,24 +137,6 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Spring Actuator
     - Swagger
 
-**spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
-
-    - Gradle
-    - Spring Boot
-    - Spring Data JPA
-    - Logback
-    - Docker
-    - FlywayDB
-    - PostgreSQL connection database
-    - Guava
-    - Spring Actuator
-    - Swagger
-    - **Tsuru Deploy configuration**
-
 ### 2.1 Creating a Spring Boot Web project 
 
 To create a **spring-boot-web** project follow the instructions of this [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/README.md).
-
-### 2.2 Creating a Spring Boot Web project to deploy with Tsuru
-
-To create a **spring-boot-web-tsuru** project follow the instructions of this [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/paas/tsuru/README.md).
