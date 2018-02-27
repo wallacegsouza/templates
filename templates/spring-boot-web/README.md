@@ -15,10 +15,14 @@ lazybones create --with-git <template name> <template version> <target directory
 So if you wanted to create a new project based on spring-boot-web template in a new 'myspringbootwebapp' directory you would run:
 
 ```
-lazybones create --with-git spring-boot-web 0.4 yourspringbootwebapp
+lazybones create --with-git spring-boot-web 0.5 yourspringbootwebapp
 ```
 
 Note: Do not use the **lazybones create command** passing names with the character "-". So, names like my-spring-boot-web-app **are not alowed**.
+
+> **Note:** 
+In the application creation process you will need to choose the Platform as a Service that you need to use.
+> 
 
 ### 1.2 Building the application & Docker image
 
@@ -27,7 +31,27 @@ cd yourspringbootwebapp
 gradle build
 ```
 
-### 1.3 Development commands and tips
+### 1.3 Setting up Test Environment
+
+> **Note:** 
+If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /yourspringbootwebapp/.gradle directory, add the file the following properties:
+>
+
+```
+org.gradle.jvmargs=-Xmx1536m
+systemProp.http.proxyHost=proxy.campos.rj.gov.br
+systemProp.http.proxyPort=80
+systemProp.http.nonProxyHosts=localhost
+systemProp.http.auth.ntlm.domain=domain
+
+systemProp.https.proxyHost=proxy.campos.rj.gov.br
+systemProp.https.proxyPort=80
+systemProp.https.nonProxyHosts=localhost
+systemProp.https.auth.ntlm.domain=domain
+
+```
+
+### 1.4 Development commands and tips
 
 If you want tips asnd more information about the development enviroment take a look at this [link]
 (https://gitlab.com/jhonys.camacho/java-templates/blob/master/templates/spring-boot-web/doc/DEVELOPMENT.md)
