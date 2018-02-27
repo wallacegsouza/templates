@@ -129,6 +129,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Gradle
     - Spring Boot
     - Spring Data JPA
+    - Logback
     - Docker
     - FlywayDB
     - PostgreSQL connection database
@@ -141,6 +142,7 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Gradle
     - Spring Boot
     - Spring Data JPA
+    - Logback
     - Docker
     - FlywayDB
     - PostgreSQL connection database
