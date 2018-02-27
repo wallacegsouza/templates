@@ -1,6 +1,3 @@
-#The artifact that will be used to deploy is referenced in:
-# - build_job.artifacts.path
-# - job_template.script
 
 stages:
   - test
