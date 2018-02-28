@@ -1,5 +1,9 @@
+// Questions
 def props = [:]
+// ref >> https://maven.apache.org/guides/mini/guide-naming-conventions.html
+println 'The group will identify your project uniquely across all projects, so we need to enforce a naming schema'
 props.group = ask("Define value for 'group' [br.gov.rj.campos]: ", "br.gov.rj.campos", "group")
+
 props.version = ask("Define value for 'version' [0.1]: ", "0.1", "version")
 
 println 'Just a simple name for the app'
@@ -18,13 +22,25 @@ n) none
 String aux = ask("value default is t: ", "t")
 String paas = mapPaas[aux]
 
+// Set properties for templates
 props.projectDir = projectDir
-
 props.pkg = props.group + "." + props.artifact
-props.USER = "\$USER"
 
-["build.gradle", "**/*.groovy", "**/*.java", "settings.gradle", "docker-compose.yml", "src/main/resources/logback-spring.xml",
- "src/main/resources/application.yaml", "src/main/resources/db/migration/*.sql"].each {
+// >> Log-back-spring config
+props.LOG_PATH = "\${LOG_PATH}"
+props.LOG_ARCHIVE = "\${LOG_ARCHIVE}"
+props.LOG_PATTERN = "\${LOG_PATTERN}"
+props.TIMESTAMP_BY_SECOND = "\${TIMESTAMP_BY_SECOND}"
+
+// Process Templates
+["build.gradle",
+  "**/*.groovy",
+  "**/*.java",
+  "settings.gradle",
+  "docker-compose.yml",
+  "src/main/resources/logback-spring.xml",
+  "src/main/resources/application.yaml",
+  "src/main/resources/db/migration/*.sql"].each {
   processTemplates(it, props)
 }
 
@@ -47,6 +63,7 @@ def old_groovy_test_dir = [projectDir, "src", "test", "groovy"].join(separator)
 
 import org.apache.commons.io.FileUtils
 
+// Move directories and files to the application package
 ["controller", "entity", "repository", "service", "init", "util", "DemoApplication.java", "SwaggerConfig.java"].each { 
   FileUtils.moveToDirectory(new File(old_java_dir + separator + it), dir_java_project, true)
 }
@@ -55,12 +72,14 @@ import org.apache.commons.io.FileUtils
   FileUtils.moveToDirectory(new File(old_groovy_test_dir + separator + it), dir_groovy_test_project, true)
 }
 
+// Change the name of the files or directories
 FileUtils.moveFile(
   new File(projectDir, "gitignore.txt"),
   new File(projectDir, ".gitignore"))
 
- String paas_dir = [projectDir, "paas"].join(separator)
+String paas_dir = [projectDir, "paas"].join(separator)
 
+// Copy files form PAAS
 if(paas && 'none' != paas) {
   FileUtils.forceDelete(new File(projectDir, ".gitlab-ci.yml"))
   def passFileDir = new File(paas_dir + separator + paas)
@@ -69,7 +88,9 @@ if(paas && 'none' != paas) {
   }
 }
 
+// Delete unnecessary directories and files
 FileUtils.deleteDirectory(new File(paas_dir))
 FileUtils.deleteDirectory(new File(".lazybones"))
 
+// Create .gradle directory form cache
 new File([projectDir, ".gradle"].join(separator)).mkdirs()

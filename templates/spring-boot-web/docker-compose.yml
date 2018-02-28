@@ -20,7 +20,7 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - /home/$USER/pgadmin4:/pgadmin
+      - /home/\$USER/pgadmin4:/pgadmin
     depends_on:
       - database
 

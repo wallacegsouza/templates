@@ -30,6 +30,7 @@ build_job:
   artifacts:
     paths:
       - build/libs/*.jar
+  when: on_success
   dependencies:
     - test
 
