@@ -62,45 +62,28 @@ Actuator endpoints allow you to monitor and interact with your application. Spri
 
 Take a look at some actuator endpoints:
 
+```
 /error
-
 /auditevents
-
 /loggers
-
 /loggers/{name:.*}
-
 /env
-
 /env/{name:.*}
-
 /beans
-
 /mappings
-
 /info
-
 /auditevents
-
 /flyway
-
 /trace
-
 /health
-
 /dump
-
 /metrics/{name:.*}
-
 /metrics
-
 /autoconfig
-
 /heapdump
-
 /configprops
-
 /v2/api-docs
+```
 
 For more information about Actuator take a look at this [link](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html)
 
@@ -108,12 +91,11 @@ For more information about Actuator take a look at this [link](https://docs.spri
 
 Swagger is an open source project used to describe and document RESTful APIs. To access the project API documentation use the following URL's:
 
+```
 /swagger-ui.html
-
 /swagger-resources/configuration/security
-
 /swagger-resources
-
 /swagger-resources/configuration/ui
+```
 
 For more information about Swagger take a look at this [link](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)

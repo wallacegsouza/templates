@@ -43,7 +43,9 @@ sudo chmod 777 /$HOME/pgadmin4
 
 ### 1.3 Configure Gradle proxy
 
+> **Note:** 
 If you are behind a HTTP or HTTPS proxy server, you will need to create a file called _gradle.properties_ in the /$HOME/.gradle directory, add the file the following properties:
+>
 
 ```
 org.gradle.jvmargs=-Xmx1536m
@@ -127,30 +129,14 @@ We have 2 (two) templates that you can choose and create your project from them:
     - Gradle
     - Spring Boot
     - Spring Data JPA
+    - Logback
     - Docker
     - FlywayDB
     - PostgreSQL connection database
     - Guava
     - Spring Actuator
     - Swagger
-
-**spring-boot-web-tsuru** template will generate a Spring boot Java project configured with:
-
-    - Gradle
-    - Spring Boot
-    - Spring Data JPA
-    - Docker
-    - FlywayDB
-    - PostgreSQL connection database
-    - Guava
-    - Spring Actuator
-    - Swagger
-    - **Tsuru Deploy configuration**
 
 ### 2.1 Creating a Spring Boot Web project 
 
 To create a **spring-boot-web** project follow the instructions of this [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/README.md).
-
-### 2.2 Creating a Spring Boot Web project to deploy with Tsuru
-
-To create a **spring-boot-web-tsuru** project follow the instructions of this [link](http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web-tsuru/README.md).
