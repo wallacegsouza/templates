@@ -61,7 +61,6 @@ FileUtils.moveFile(
  String paas_dir = [projectDir, "paas"].join(separator)
 
 if(paas && 'none' != paas) {
-  FileUtils.forceDelete(new File(projectDir, "README.md"))
   FileUtils.forceDelete(new File(projectDir, ".gitlab-ci.yml"))
   def passFileDir = new File(paas_dir + separator + paas)
   passFileDir.listFiles().each {
