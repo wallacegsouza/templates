@@ -64,6 +64,7 @@ mainClassName = "${pkg}.DemoApplication"
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'ru.vyarus.quality'
 apply plugin: 'com.bmuschko.docker-remote-api'
+apply plugin: "org.sonarqube"
 
 buildscript {
     repositories {
@@ -85,6 +86,8 @@ buildscript {
         //Gradle quality plugin for Java and Groovy.
         //https://github.com/xvik/gradle-quality-plugin
         classpath 'ru.vyarus:gradle-quality-plugin:2.4.0'
+        //Gradle plugin for running SonarQube analysis.
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
     }
 }
 
