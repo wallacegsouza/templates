@@ -11,7 +11,6 @@ stages:
 variables:
   TSURU_TOKEN: d0df2c9b84e52bde94ccb620bf150eeccd2e0fdd9bbe0219be574e2f71cf1f71
   TSURU_TARGET: 10.131.189.70:8080
-  JAVA_OPTS: -Dhttp.proxyHost=proxy.campos.rj.gov.br -Dhttp.proxyPort=80
 
 image: gradle:4.5.1-jdk8-alpine
 

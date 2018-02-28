@@ -4,9 +4,6 @@ stages:
   - build
   - cleanup
   
-variables:
-  JAVA_OPTS: -Dhttp.proxyHost=proxy.campos.rj.gov.br -Dhttp.proxyPort=80
-
 image: gradle:4.5.1-jdk8-alpine
 
 test:
