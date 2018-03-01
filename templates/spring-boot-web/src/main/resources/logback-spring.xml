@@ -11,22 +11,22 @@
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
     <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
 
-    <appender name="FILEAPPENDER" class="ch.qos.logback.core.FileAppender">
+    <!-- appender name="FILEAPPENDER" class="ch.qos.logback.core.FileAppender">
         <file>${LOG_PATH}/logfile-${TIMESTAMP_BY_SECOND}.log</file>
         <encoder>
             <pattern>%d{HH:mm:ss,SSS} %-5.5p [%30.30c] %X{indent}%m%n</pattern>
             <outputPatternAsHeader>true</outputPatternAsHeader>
         </encoder>
-    </appender>
+    </appender -->
 
     <appender name="ROLLINGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/rollingfile.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_ARCHIVE}/rollingfile.log%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
             <maxHistory>30</maxHistory>
-            <!--totalSizeCap>1KB</totalSizeCap -->
+            <totalSizeCap>500MB</totalSizeCap>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>500KB</maxFileSize>
+                <maxFileSize>1MB</maxFileSize>
       	    </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
@@ -35,7 +35,7 @@
     </appender>
 
     <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <queueSize>3</queueSize>
+        <queueSize>500</queueSize>
         <discardingThreshold>0</discardingThreshold>
         <appender-ref ref="ROLLINGFILE" />
     </appender>
