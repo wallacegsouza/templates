@@ -9,14 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 import ${pkg}.entity.Item;
 import ${pkg}.service.ItemService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 public class ItemController {
-  
+
+  private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
   @Autowired
   private ItemService itemService;
-  
+
   @GetMapping("/")
   public List<Item> items() {
+    logger.info("This is an info message.");
     return itemService.findAll();
   }
 
