@@ -26,12 +26,6 @@ String paas = mapPaas[aux]
 props.projectDir = projectDir
 props.pkg = props.group + "." + props.artifact
 
-// >> Log-back-spring config
-props.LOG_PATH = "\${LOG_PATH}"
-props.LOG_ARCHIVE = "\${LOG_ARCHIVE}"
-props.LOG_PATTERN = "\${LOG_PATTERN}"
-props.TIMESTAMP_BY_SECOND = "\${TIMESTAMP_BY_SECOND}"
-
 // Process Templates
 ["build.gradle",
   "**/*.groovy",
