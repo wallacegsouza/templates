@@ -21,8 +21,7 @@ public class Category implements Serializable {
 
   public Category() {}
 
-  public Category(int id, String description) {
-    this.id = id;
+  public Category(String description) {
     this.description = description;
   }
 
@@ -32,6 +31,10 @@ public class Category implements Serializable {
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public void setId(String id) {
+    this.id = Integer.parseInt(id);
   }
 
   public String getDescription() {

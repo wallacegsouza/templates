@@ -5,6 +5,7 @@ spring:
     properties:
       hibernate:
         default_schema: $artifact
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
 
   #https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
   datasource:

@@ -22,8 +22,7 @@ public class Item implements Serializable {
   public Item() {
   }
 
-  public Item(int id, String name, Category category) {
-    this.id = id;
+  public Item(String name, Category category) {
     this.name = name;
     this.category = category;
   }
@@ -34,6 +33,10 @@ public class Item implements Serializable {
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public void setId(String id) {
+    this.id = Integer.parseInt(id);
   }
 
   public String getName() {
