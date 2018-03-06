@@ -1,22 +1,31 @@
 package ${pkg}.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.io.Serializable;
+import javax.persistence.*;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
+  private static final long serialVersionUID = 1L;
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   private String name;
 
+  @ManyToOne
+  @JoinColumn(name="itemId")
+  @JsonBackReference
+  private Category category;
+
   public Item() {
   }
 
-  public Item(int id, String name) {
+  public Item(int id, String name, Category category) {
     this.id = id;
     this.name = name;
+    this.category = category;
   }
 
   public int getId() {
@@ -33,6 +42,14 @@ public class Item {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public Category getCategory() {
+    return this.category;
   }
 
 }
