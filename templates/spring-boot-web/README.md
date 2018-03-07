@@ -54,7 +54,7 @@ systemProp.https.auth.ntlm.domain=domain
 ### 1.4 Development commands and tips
 
 If you want tips asnd more information about the development enviroment take a look at this [link]
-(https://gitlab.campos.rj.gov.br/java-templates/blob/master/templates/spring-boot-web/doc/DEVELOPMENT.md)
+(http://gitlab.campos.rj.gov.br/cubo/java-templates/blob/master/templates/spring-boot-web/doc/DEVELOPMENT.md)
 
 ## 2. Running the application
 
