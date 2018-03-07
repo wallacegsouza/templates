@@ -24,7 +24,7 @@ To remove all docker containers run `docker rm $(docker ps -a -q)`
 
 The `gradle run -Pjenv=development` command is equivalent to the `./gradlew run -Pjenv=development`.
 
-The `gradle run -Pjenv=test` command is equivalent to the `./gradlew run -Pjenv=test`
+The `gradle run -Pjenv=test` command is equivalent to the `./gradlew run -Pjenv=test` and in this environment you can access the H2 databe using the url **/console**.
 
 The `gradle run -Pjenv=production` command is equivalent to the `./gradlew run -Pjenv=production`
 
