@@ -9,14 +9,10 @@ import java.util.List;
 public class Category implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   private String description;
 
-  @OneToMany(mappedBy="category")
-  @JsonManagedReference
   private List<Item> itens;
 
   public Category() {}
@@ -25,6 +21,8 @@ public class Category implements Serializable {
     this.description = description;
   }
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   public int getId() {
     return id;
   }
@@ -45,6 +43,8 @@ public class Category implements Serializable {
     this.description = description;
   }
 
+  @OneToMany(mappedBy="category")
+  @JsonManagedReference
   public List<Item> getItens() {
     return itens;
   }

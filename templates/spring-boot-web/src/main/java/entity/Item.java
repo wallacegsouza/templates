@@ -8,25 +8,21 @@ import javax.persistence.*;
 public class Item implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   private String name;
 
-  @ManyToOne
-  @JoinColumn(name="itemId")
-  @JsonBackReference
   private Category category;
 
-  public Item() {
-  }
+  public Item() {}
 
   public Item(String name, Category category) {
     this.name = name;
     this.category = category;
   }
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   public int getId() {
     return id;
   }
@@ -51,6 +47,9 @@ public class Item implements Serializable {
     this.category = category;
   }
 
+  @ManyToOne
+  @JoinColumn(name="itemId")
+  @JsonBackReference
   public Category getCategory() {
     return this.category;
   }

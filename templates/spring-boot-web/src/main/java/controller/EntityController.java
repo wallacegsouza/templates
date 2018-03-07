@@ -27,6 +27,8 @@ public class EntityController {
 
     @Autowired
     private EntityManagerFactory emf;
+    private final Logger logger = new Slf4jLogger();
+    private Elide elide;
 
     /**
      * Converts a plain map to a multivalued map
@@ -38,49 +40,20 @@ public class EntityController {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(
-            method = RequestMethod.GET,
+    @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             value={"/{entity}", "/{entity}/{id}/relationships/{entity2}", "/{entity}/{id}/{child}", "/{entity}/{id}"})
     @Transactional
     public String jsonApiGet(@RequestParam final Map<String, String> allRequestParams, final HttpServletRequest request) {
-        /*
-            This gives us the full path that was used to call this endpoint.
-         */
+        LOGGER.debug("Request api get");
+
+        // This gives us the full path that was used to call this endpoint.
         final String restOfTheUrl = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
 
-        /*
-            Elide works with the Hibernate SessionFactory, not the JPA EntityManagerFactory.
-            Fortunately we san unwrap the JPA EntityManagerFactory to get access to the
-            Hibernate SessionFactory.
-         */
-        final SessionFactory sessionFactory = emf.unwrap(SessionFactory.class);
+        final Elide elide = getElide();
 
-        /*
-            Elide takes a hibernate session factory
-        */
-        final DataStore dataStore = new HibernateStore(sessionFactory);
-
-        /*
-            Define a logger
-         */
-        final Logger logger = new Slf4jLogger();
-
-        /*
-            Create the Elide object
-         */
-        final Elide elide = new Elide(logger, dataStore);
-
-        /*
-            Convert the map to a MultivaluedMap, which we can then
-         */
+        // Convert the map to a MultivaluedMap, which we can then
         final MultivaluedMap<String, String> params = fromMap(allRequestParams);
-
-        /*
-            There is a bug in Elide on Windows that will convert a leading forward slash into a backslash,
-            which then displays the error "token recognition error at: '\\'".
-         */
-        final String fixedPath = restOfTheUrl.replaceAll("^/", "");
 
         /*
             This is where the magic happens. We pass in the path, the params, and a place holder security
@@ -88,11 +61,29 @@ public class EntityController {
             to authorize certain actions), and we get back a response with all the information
             we need.
          */
-        final ElideResponse response = elide.get(fixedPath, params, new Object());
+        final ElideResponse response = elide.get(restOfTheUrl, params, new Object());
 
-        /*
-            Return the JSON response to the client
-         */
+        // Return the JSON response to the client
         return response.getBody();
+    }
+
+    private DataStore getElideDataStore() {
+        /*
+            Elide works with the Hibernate SessionFactory, not the JPA EntityManagerFactory.
+            Fortunately we san unwrap the JPA EntityManagerFactory to get access to the
+            Hibernate SessionFactory.
+         */
+        final SessionFactory sessionFactory = emf.unwrap(SessionFactory.class);
+
+        // Elide takes a hibernate session factory
+        return new HibernateStore(sessionFactory);
+    }
+
+    private Elide getElide() {
+        if(elide == null) {
+            final DataStore dataStore = getElideDataStore();
+            elide = new Elide(logger, dataStore);
+        }
+        return elide;
     }
 }
