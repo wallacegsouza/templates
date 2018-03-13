@@ -20,7 +20,7 @@ public class ItemController {
   @Autowired
   private ItemService itemService;
 
-  @GetMapping("/")
+  @GetMapping("/teste")
   public List<Item> items() {
     logger.info("This is an info message.");
     return itemService.findAll();

@@ -25,12 +25,12 @@ public class Bootstrap {
   @Transactional
   public void seed() {
     if(!JENV_PRODUCTION) {
-      Category categoryX = categoryRepository.save(new Category(1, "X classes"));
-      Category categoryY = categoryRepository.save(new Category(2, "Y classes"));
+      Category categoryX = categoryRepository.save(new Category("X classes"));
+      Category categoryY = categoryRepository.save(new Category("Y classes"));
 
-      itemRepository.save(new Item(1, "A", categoryX));
-      itemRepository.save(new Item(2, "B", categoryY));
-      itemRepository.save(new Item(3, "C", categoryY));
+      itemRepository.save(new Item("A", categoryX));
+      itemRepository.save(new Item("B", categoryY));
+      itemRepository.save(new Item("C", categoryY));
     }
   }
 }

@@ -17,6 +17,21 @@ import springfox.documentation.service.Contact;
 @EnableSwagger2
 public class SwaggerConfig {
 
+  public static final Contact DEFAULT_CONTACT = new Contact(
+    "CIDAC",
+    "www.campos.rj.gov.br",
+    "desenvolvimento.cidac@campos.rj.gov.br");
+
+  public static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
+    "${artifact.toUpperCase()} REST API",
+    "Alguma descrição personalizada da API.",
+    "API TOS",
+    "Termos de serviço",
+    DEFAULT_CONTACT,
+    "Licença de API",
+    "API license URL",
+    Collections.emptyList());
+
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
@@ -25,16 +40,6 @@ public class SwaggerConfig {
       .apis(RequestHandlerSelectors.basePackage("${pkg}.controller"))
       .paths(PathSelectors.any())
       .build()
-      .apiInfo(apiInfo());
-  }
-
-  private ApiInfo apiInfo() {
-    return new ApiInfo(
-    "REST Api do CCidadao ",
-    "Alguma descrição personalizada da API.",
-    "API TOS",
-    "Termos de serviço",
-    new Contact("Wallace G. Souza", "www.campos.rj.gov.br", "wallacesouza@campos.rj.gov.br"),
-    "Licença de API", "API license URL", Collections.emptyList());
+      .apiInfo(DEFAULT_API_INFO);
   }
 }
