@@ -57,13 +57,16 @@ def old_groovy_test_dir = [projectDir, "src", "test", "groovy"].join(separator)
 
 import org.apache.commons.io.FileUtils
 
-// Move directories and files to the application package
-["controller", "entity", "repository", "service", "init", "util", "DemoApplication.java", "SwaggerConfig.java"].each { 
-  FileUtils.moveToDirectory(new File(old_java_dir + separator + it), dir_java_project, true)
+File old_java_dir_path = new File(old_java_dir)
+
+old_java_dir_path.listFiles().each {
+  FileUtils.moveToDirectory(it, dir_java_project, true)
 }
 
-["ItemControllerSpec.groovy"].each {
-  FileUtils.moveToDirectory(new File(old_groovy_test_dir + separator + it), dir_groovy_test_project, true)
+File old_groovy_test_dir_path = new File(old_groovy_test_dir)
+
+old_groovy_test_dir_path.listFiles().each {
+  FileUtils.moveToDirectory(it, dir_groovy_test_project, true)
 }
 
 // Change the name of the files or directories
