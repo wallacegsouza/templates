@@ -40,9 +40,9 @@ public class EntityController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(
+    /*@GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
-            value={"/{entity}", "/{entity}/{id}/relationships/{entity2}", "/{entity}/{id}/{child}", "/{entity}/{id}"})
+            value={"/{entity}", "/{entity}/{id}/relationships/{entity2}", "/{entity}/{id}/{child}", "/{entity}/{id}"})*/
     @Transactional
     public String jsonApiGet(@RequestParam final Map<String, String> allRequestParams, final HttpServletRequest request) {
         LOGGER.debug("Request api get");

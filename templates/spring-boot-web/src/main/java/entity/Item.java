@@ -48,7 +48,7 @@ public class Item implements Serializable {
   }
 
   @ManyToOne
-  @JoinColumn(name="itemId")
+  @JoinColumn
   @JsonBackReference
   public Category getCategory() {
     return this.category;

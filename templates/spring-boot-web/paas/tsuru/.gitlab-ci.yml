@@ -44,18 +44,18 @@ cleanup_build:
 .job_template: &deploy_definition
   image: tsuru/client:latest
   stage: deploy
+  when: manual
   script:
     - tsuru app-deploy -a ${CI_PROJECT_NAME}-${DEPLOY_MODE} build/libs/*.jar Procfile tsuru.yaml
   dependencies:
     - build_job
+  environment:
+    name: ${DEPLOY_MODE}
 
 deploy-staging-tsuru:
   <<: *deploy_definition
   only:
     - develop
-  when: manual
-  environment:
-    name: staging
   variables:
     DEPLOY_MODE: staging
 
@@ -63,8 +63,5 @@ deploy-production-tsuru:
   <<: *deploy_definition
   only:
     - master
-  when: manual
-  environment:
-    name: production
   variables:
     DEPLOY_MODE: production

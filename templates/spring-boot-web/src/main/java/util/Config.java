@@ -7,9 +7,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import org.h2.server.web.WebServlet;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.annotation.Bean;
+//import org.h2.server.web.WebServlet;
+//import org.springframework.boot.web.servlet.ServletRegistrationBean;
+//import org.springframework.context.annotation.Bean;
 
 /**
  *
@@ -31,13 +31,13 @@ public class Config extends WebMvcConfigurerAdapter {
     registry.addInterceptor(this.requestLogger);
   }
 
-  @Bean
-  public ServletRegistrationBean h2servletRegistration() {
-    if(JENV_TEST) {
-      ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-      registrationBean.addUrlMappings("/console/*");
-      return registrationBean;
-    }
-    return null;
-  }
+  // @Bean
+  // public ServletRegistrationBean h2servletRegistration() {
+  //   if(JENV_TEST) {
+  //     ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+  //     registrationBean.addUrlMappings("/console/*");
+  //     return registrationBean;
+  //   }
+  //   return null;
+  // }
 }
